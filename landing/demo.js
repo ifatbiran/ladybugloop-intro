@@ -85,8 +85,8 @@
     ring.style.left = (r.left + scrollX - p) + 'px'; ring.style.top = (r.top + scrollY - p) + 'px';
     ring.style.width = (r.width + 2 * p) + 'px'; ring.style.height = (r.height + 2 * p) + 'px';
   }
-  function showRing() { placeRing(); ring.classList.remove('dm-on', 'dm-fade'); void ring.offsetWidth; ring.classList.add('dm-on'); }
-  function hideRing() { ring.classList.add('dm-fade'); }
+  function showRing() { placeRing(); ring.classList.add('dm-vis'); ring.classList.remove('dm-on', 'dm-fade'); void ring.offsetWidth; ring.classList.add('dm-on'); }
+  function hideRing() { ring.classList.add('dm-fade'); later(function () { ring.classList.remove('dm-vis', 'dm-on'); }, 450); }
   addEventListener('resize', placeRing);
 
   function type(node, text, done) {

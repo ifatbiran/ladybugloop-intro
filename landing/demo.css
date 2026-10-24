@@ -64,7 +64,8 @@
 .dm-body .dm-fin{font-weight:800;font-size:17px;color:var(--ink)}
 
 /* the clean ellipse around the target, drawn on */
-.dm-ring{position:absolute;z-index:40;pointer-events:none;transition:opacity .4s var(--ease)}
+.dm-ring{position:absolute;top:0;left:0;width:0;height:0;overflow:visible;visibility:hidden;z-index:40;pointer-events:none;transition:opacity .4s var(--ease)}
+.dm-ring.dm-vis{visibility:visible}
 .dm-ring.dm-fade{opacity:0}
 .dm-ring svg{width:100%;height:100%;overflow:visible}
 .dm-ring path{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .9s var(--ease)}
