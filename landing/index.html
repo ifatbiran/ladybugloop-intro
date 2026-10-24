@@ -60,19 +60,19 @@ a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius
 .lockup{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:44px}
 .disc{width:40px;height:40px;border-radius:50%;background:var(--grad);display:grid;place-items:center;flex:none}
 .disc svg{width:26px;height:26px}
-/* logo hover (from /me/): a halo ring pulses out of the disc, the beetle turns and wiggles */
+/* logo hover (from /me/): a halo ring pulses out of the disc, the beetle spins a full turn (like the film opening) */
 .disc{position:relative;transition:box-shadow .35s var(--ease)}
 .disc:before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);opacity:0;pointer-events:none}
 .disc svg{transition:transform .5s var(--ease)}
 @keyframes lbl-ring{0%{transform:scale(.95);opacity:.6}100%{transform:scale(1.75);opacity:0}}
-@keyframes lbl-wiggle{0%,100%{transform:rotate(0) scale(1.14)}30%{transform:rotate(-16deg) scale(1.14)}65%{transform:rotate(10deg) scale(1.14)}}
+@keyframes lbl-wiggle{0%{transform:rotate(0) scale(1)}55%{transform:rotate(380deg) scale(1.18)}75%{transform:rotate(350deg) scale(1.12)}100%{transform:rotate(360deg) scale(1.12)}}
 .lockup:focus-visible .disc,.lockup:active .disc{box-shadow:0 8px 22px -6px rgba(201,42,134,.75)}
 .lockup:focus-visible .disc:before,.lockup:active .disc:before{animation:lbl-ring 1.4s ease-out infinite}
-.lockup:focus-visible .disc svg,.lockup:active .disc svg{animation:lbl-wiggle .9s var(--ease)}
+.lockup:focus-visible .disc svg,.lockup:active .disc svg{animation:lbl-wiggle 1.1s var(--ease) both}
 @media (hover:hover){
   .lockup:hover .disc{box-shadow:0 8px 22px -6px rgba(201,42,134,.75)}
   .lockup:hover .disc:before{animation:lbl-ring 1.4s ease-out infinite}
-  .lockup:hover .disc svg{animation:lbl-wiggle .9s var(--ease)}
+  .lockup:hover .disc svg{animation:lbl-wiggle 1.1s var(--ease) both}
 }
 @media (prefers-reduced-motion:reduce){.lockup .disc:before,.lockup .disc svg{animation:none!important}}
 .word{font-family:Montserrat,Heebo,sans-serif;font-weight:700;font-size:15px;letter-spacing:var(--track);color:var(--accent)}
