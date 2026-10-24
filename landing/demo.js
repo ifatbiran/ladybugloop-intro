@@ -21,7 +21,7 @@
     s2h: 'נפתח כרטיס', title: function (n) { return 'כפתור ההדגמה: לצבוע ב' + n; },
     labs: ['שינוי', 'עיצוב'], li: ['איפה: דף הנחיתה, הכפתור הראשי', 'מה ביקשו: צבע אחר', 'מצורף: צילום מסך עם סימון'],
     timer: 'הכרטיס מוכן תוך', sec: 'שניות', next: 'המשך',
-    s3h: 'bugloop.studio מתקן', chk: ['קורא את הכרטיס', 'כותב את השינוי', 'בודק ומעלה'],
+    skip: 'כמה דקות אחר כך', real: 'בהדגמה הזמן מקוצר. בפועל התיקון לוקח כמה דקות, ואדם בודק אותו לפני שהוא עולה.', s3h: 'bugloop.studio מתקן', chk: ['קורא את הכרטיס', 'כותב את השינוי', 'בודק ומעלה'],
     s4h: 'הבודק מאשר', s4p: 'השינוי עלה. מסתכלים על הדף ומאשרים בקליק.', ok: 'לאשר', back: 'להחזיר',
     fin: 'המעגל נסגר: מהבקשה ועד האישור, בלי טופס אחד.', finp: 'השינוי נשאר רק אצלכם, עד שתרעננו את הדף.',
     demo: 'קביעת הדגמה קצרה'
@@ -35,7 +35,7 @@
     s2h: 'Ticket opened', title: function (n) { return 'Demo button: make it ' + n.toLowerCase(); },
     labs: ['change', 'design'], li: ['Where: landing page, main button', 'Asked for: a different colour', 'Attached: marked screenshot'],
     timer: 'Ticket ready in', sec: 'seconds', next: 'Next',
-    s3h: 'bugloop.studio fixes it', chk: ['Reads the ticket', 'Writes the change', 'Checks and ships'],
+    skip: 'A few minutes later', real: 'Time is shortened in this demo. In real life the fix takes a few minutes, and a person reviews it before it ships.', s3h: 'bugloop.studio fixes it', chk: ['Reads the ticket', 'Writes the change', 'Checks and ships'],
     s4h: 'The tester approves', s4p: 'The change is live. Look at the page and approve in one click.', ok: 'Approve', back: 'Undo',
     fin: 'Loop closed: from the request to the approval, without a single form.', finp: 'The change stays only on your screen until you reload.',
     demo: 'Book a short demo'
@@ -124,16 +124,16 @@
   }
   function step3() {
     setStep(2);
-    body.innerHTML = '<h4>' + T.s3h + '</h4><ul class="dm-check">' + T.chk.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul>';
+    body.innerHTML = '<span class="dm-skip">' + T.skip + '</span><h4>' + T.s3h + '</h4><ul class="dm-check">' + T.chk.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul><p class="dm-real">' + T.real + '</p>';
     var items = body.querySelectorAll('.dm-check li');
-    [0, 1, 2].forEach(function (k) { later(function () { items[k].classList.add('dm-ok'); }, 650 * (k + 1)); });
+    [0, 1, 2].forEach(function (k) { later(function () { items[k].classList.add('dm-ok'); }, 900 * (k + 1)); });
     later(function () {
       document.documentElement.style.setProperty('--dm-c', color.c);
       document.documentElement.classList.add('dm-c');
       if (target) { target.classList.remove('dm-flash'); void target.offsetWidth; target.classList.add('dm-flash'); }
       hideRing();
-    }, 2300);
-    later(step4, 3300);
+    }, 3100);
+    later(step4, 5200);
   }
   function step4() {
     setStep(3);
@@ -151,15 +151,15 @@
   function open() {
     hint.classList.remove('dm-on'); clearAll();
     target = firstVisiblePri();
-    if (target) { var r = target.getBoundingClientRect(); if (r.top < 70 || r.bottom > innerHeight * .42) scrollTo({ top: Math.max(0, scrollY + r.top - 90), behavior: reduce ? 'auto' : 'smooth' }); }
-    sheet.hidden = false; void sheet.offsetWidth; sheet.classList.add('dm-open'); fab.classList.add('dm-hide'); fab.setAttribute('aria-expanded', 'true');
+    if (target) { var r = target.getBoundingClientRect(); if (r.top < 70 || r.bottom > innerHeight * .30) scrollTo({ top: Math.max(0, scrollY + r.top - 90), behavior: reduce ? 'auto' : 'smooth' }); }
+    sheet.hidden = false; void sheet.offsetWidth; sheet.classList.add('dm-open'); fab.setAttribute('aria-expanded', 'true');
     step1(); later(function () { var b = body.querySelector('.dm-sw button'); if (b) b.focus({ preventScroll: true }); }, 500);
   }
   function close() {
-    clearAll(); hideRing(); sheet.classList.remove('dm-open'); fab.classList.remove('dm-hide'); fab.setAttribute('aria-expanded', 'false');
+    clearAll(); hideRing(); sheet.classList.remove('dm-open'); fab.setAttribute('aria-expanded', 'false');
     setTimeout(function () { sheet.hidden = true; }, reduce ? 0 : 450); fab.focus({ preventScroll: true });
   }
-  fab.addEventListener('click', open);
+  fab.addEventListener('click', function () { if (sheet.classList.contains('dm-open')) close(); else open(); });
   sheet.querySelector('.dm-x').addEventListener('click', close);
   addEventListener('keydown', function (e) { if (e.key === 'Escape' && !sheet.hidden) close(); });
   [].forEach.call(document.querySelectorAll('[data-demo-open]'), function (b) { b.addEventListener('click', function (e) { e.preventDefault(); open(); }); });

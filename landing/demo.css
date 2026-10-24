@@ -6,7 +6,7 @@
 .dm-fab svg{width:36px;height:36px}
 .dm-fab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media (hover:hover){.dm-fab:hover{transform:scale(1.06)}}
-.dm-fab.dm-hide{transform:scale(0);pointer-events:none}
+.dm-fab[aria-expanded="true"] .dm-pulse{display:none}
 .dm-fab .dm-pulse{position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--accent);opacity:0;animation:dmPulse 2.4s var(--ease) 1.2s 3}
 @keyframes dmPulse{0%{opacity:.7;transform:scale(.9)}100%{opacity:0;transform:scale(1.25)}}
 
@@ -14,11 +14,11 @@
   padding:10px 14px;border-radius:14px;opacity:0;transform:translateX(8px);transition:opacity .35s var(--ease),transform .35s var(--ease);pointer-events:none}
 .dm-hint.dm-on{opacity:1;transform:none}
 
-.dm-sheet{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:440px;margin-inline:auto;max-height:min(66vh,560px);overflow:auto;
+.dm-sheet{position:fixed;left:16px;right:16px;bottom:88px;z-index:60;max-width:420px;margin-left:auto;max-height:max(280px,calc(100vh - 290px));max-height:max(280px,calc(100dvh - 290px));overflow:auto;
   background:var(--card);color:var(--ink);border-radius:20px;padding:16px 18px 18px;box-shadow:0 24px 60px -20px rgba(0,0,0,.5);
-  transform:translateY(calc(100% + 24px));transition:transform .45s var(--ease)}
-.dm-sheet.dm-open{transform:none}
-@media (min-width:760px){.dm-sheet{left:auto;right:92px;bottom:20px;width:400px}}
+  transform-origin:right bottom;opacity:0;transform:scale(.4);transition:transform .35s var(--ease),opacity .25s var(--ease)}
+.dm-sheet.dm-open{transform:none;opacity:1}
+@media (min-width:760px){.dm-sheet{left:auto;right:16px;bottom:88px;width:400px;max-height:min(70vh,600px)}}
 .dm-head{display:flex;align-items:center;gap:10px}
 .dm-head .disc{width:30px;height:30px}
 .dm-head .disc svg{width:20px;height:20px}
@@ -61,7 +61,9 @@
 .dm-check li::before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid var(--hair);flex:none;transition:background-color .3s,border-color .3s}
 .dm-check li.dm-ok{opacity:1;color:var(--ink)}
 .dm-check li.dm-ok::before{background:var(--accent);border-color:var(--accent)}
-.dm-body .dm-fin{font-weight:800;font-size:17px;color:var(--ink)}
+.dm-body .dm-skip{display:inline-block;margin:2px 0 10px;font-size:13px;font-weight:800;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:999px}
+.dm-real{margin-top:10px;font-size:13px;color:var(--ink-2)}
+.dm-fin{font-weight:800;font-size:17px;color:var(--ink)}
 
 /* the clean ellipse around the target, drawn on */
 .dm-ring{position:absolute;top:0;left:0;width:0;height:0;overflow:visible;visibility:hidden;z-index:40;pointer-events:none;transition:opacity .4s var(--ease)}
