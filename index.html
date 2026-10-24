@@ -3,255 +3,356 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>יפעת בירן | Senior Program Manager ויזמת טכנולוגית</title>
-<meta name="description" content="יפעת בירן, Senior Program Manager ויזמת טכנולוגית עם יותר מ־25 שנות ניסיון בתוכנה, סייבר ו-QA, לצד רקע באנימציה ועריכת וידאו. בונה את LadyBugLoop, מוצר AI לדיווח על באגים.">
-<meta name="theme-color" content="#28133d">
-<meta property="og:type" content="website">
-<meta property="og:title" content="יפעת בירן | טכנולוגיה, יצירה ו-AI">
-<meta property="og:description" content="ניסיון עמוק בטכנולוגיה וב-QA, רקע באנימציה ועריכת וידאו, וכיום בניית מוצרי AI.">
-<meta property="og:url" content="https://ifatbiran.github.io/ladybugloop-intro/">
-<meta property="og:image" content="https://ifatbiran.github.io/ladybugloop-intro/poster.jpg">
+<title>LadyBugLoop · יפעת בירן</title>
+<meta name="description" content="LadyBugLoop — Speak the bug. Get the issue. מדווחים על באג בקול, ומקבלים כרטיס באג מלא. יפעת בירן, מייסדת.">
+<meta property="og:title" content="LadyBugLoop · יפעת בירן">
+<meta property="og:description" content="Speak the bug. Get the issue. מהרגע שבאג נראה במסך ועד תיקון מוכן — בלי שאף אחד כותב כרטיס.">
+<meta property="og:image" content="poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Rubik:wght@500;700;800&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#28133d;--ink2:#514063;--muted:#71637c;--pink:#d52f91;--pink2:#ff5d91;--lilac:#eee5ff;--blush:#ffe5f2;--line:#e8ddec;--white:#fff;--bg:#fcf7fd;--shadow:0 18px 48px -28px rgba(40,19,61,.35);--radius:24px}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:18px}
-body{margin:0;color:var(--ink);font:18px/1.65 Assistant,Arial,sans-serif;background:linear-gradient(145deg,#fbf0f8 0%,#f5efff 48%,#fff5ee 100%);min-height:100vh}
-a{color:inherit}
-a:focus-visible{outline:3px solid var(--pink);outline-offset:4px}
-.en{font-family:Montserrat,Arial,sans-serif;direction:ltr;unicode-bidi:isolate;letter-spacing:-.02em}
-main{max-width:1080px;margin:0 auto;padding:24px 20px 54px}
-.skip{position:absolute;top:-60px;right:16px;background:#fff;padding:10px 14px;border-radius:12px;z-index:20}
-.skip:focus{top:10px}
-h1,h2,h3{font-family:Rubik,Assistant,sans-serif;line-height:1.2}
-p{margin-top:0}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font-weight:800;color:var(--pink);font-size:15px}
-.eyebrow:before{content:"";width:9px;height:9px;background:var(--pink);border-radius:50%;box-shadow:0 0 0 5px #d52f911a}
-.hero{display:grid;grid-template-columns:1.08fr .92fr;gap:20px;align-items:stretch;margin-bottom:22px}
-.hero-copy,.product-card{border-radius:30px;box-shadow:var(--shadow);overflow:hidden}
-.hero-copy{padding:clamp(25px,4vw,46px);background:rgba(255,255,255,.88);border:1px solid #fff}
-h1{font-size:clamp(36px,5vw,58px);margin:14px 0 8px;letter-spacing:-.04em}
-.role{font-family:Montserrat,Assistant,sans-serif;direction:ltr;unicode-bidi:isolate;display:block;font-size:clamp(15px,2vw,18px);font-weight:800;color:var(--pink);line-height:1.5;margin-bottom:20px}
-.hero-copy .lead{color:var(--ink2);font-size:clamp(19px,2vw,21px);line-height:1.62;margin-bottom:16px}
-.badges{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 15px}
-.badges span{background:#f3edf7;border:1px solid var(--line);border-radius:999px;padding:4px 11px;font-weight:700;font-size:15px}
-.education{font-size:16px;color:var(--muted);margin:14px 0 22px}
-.education b{color:var(--ink2)}
-.actions{display:flex;flex-wrap:wrap;gap:9px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:47px;border-radius:999px;padding:10px 17px;font-weight:800;text-decoration:none;transition:transform .2s,box-shadow .2s}
+:root{
+  --plum:#2a1240; --plum-2:#4a2a63; --muted:#5f4d70;
+  --magenta:#c9318f; --pink:#ff4f81; --violet:#b829e3; --blush:#ffd3ee;
+  --sun:#ffd24a; --green:#1f9d55;
+  --card:#ffffffd9; --line:#2a124014;
+  --radius:22px;
+  --shadow:0 18px 40px -18px rgba(42,18,64,.35), 0 2px 6px rgba(42,18,64,.06);
+  --ease:cubic-bezier(.34,1.36,.64,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Assistant,Rubik,sans-serif; font-size:18px; line-height:1.6; color:var(--plum);
+  background:linear-gradient(160deg,#f9eaf5 0%,#f4e3f3 45%,#fdeee8 100%) fixed;
+  min-height:100vh; overflow-x:hidden;
+}
+.glow{position:fixed;width:60vmax;height:60vmax;border-radius:50%;pointer-events:none;z-index:0;filter:blur(10px)}
+.g1{top:-20vmax;right:-15vmax;background:radial-gradient(circle,rgba(255,150,205,.55),rgba(255,150,205,0) 66%)}
+.g2{bottom:-25vmax;left:-20vmax;background:radial-gradient(circle,rgba(190,150,255,.5),rgba(190,150,255,0) 66%)}
+.g3{top:40vh;left:30vw;width:40vmax;height:40vmax;background:radial-gradient(circle,rgba(255,200,170,.45),rgba(255,200,170,0) 66%)}
+main{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:24px 16px 64px}
+.en{font-family:Montserrat,sans-serif;direction:ltr;unicode-bidi:isolate;font-weight:800;letter-spacing:-.01em}
+.nw{white-space:nowrap}
+h1,h2,h3{font-family:Rubik,sans-serif;line-height:1.15}
+a:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+
+/* reveal: one animation per element, always ends visible */
+.rv{opacity:0;transform:translateY(18px);animation:up .7s var(--ease) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+@keyframes bob{50%{transform:translateY(-5px) rotate(-3deg)}}
+@media (prefers-reduced-motion:reduce){.rv{animation:none;opacity:1;transform:none}.bob{animation:none!important}}
+
+/* hero: who + what */
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:30px;position:relative}
+.disc{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%,#ff7aa8 0%,var(--pink) 30%,var(--magenta) 62%,var(--violet) 100%);
+  box-shadow:0 18px 38px -12px rgba(201,49,143,.6), inset 0 -6px 16px rgba(42,18,64,.18)}
+.disc.bob{animation:bob 4.5s ease-in-out 1s infinite}
+.disc svg{width:42px;height:42px}
+.who{display:flex;flex-direction:column;align-items:center;gap:6px;margin:14px 0 2px;font-family:Rubik,sans-serif;font-weight:700;font-size:20px;color:var(--plum-2)}
+.who b{font-weight:800;color:var(--plum);font-size:1.25em;line-height:1.1}
+.kicker{display:inline-flex;gap:7px;align-items:center;background:var(--plum);color:#fff;border-radius:999px;padding:2px 12px;font-weight:700;font-size:16px}
+.kicker i{width:8px;height:8px;border-radius:50%;background:var(--sun);display:inline-block}
+.brand{font-weight:900;font-size:clamp(34px,12.4vw,96px);line-height:1.05;letter-spacing:-.035em;margin:6px 0 4px;white-space:nowrap;color:var(--plum)}
+.brand .bug{color:var(--magenta)}
+.tag{font-family:Montserrat,sans-serif;direction:ltr;unicode-bidi:isolate;font-weight:600;font-size:clamp(17px,4.9vw,28px);color:var(--plum-2);line-height:1.25}
+.tag-he{font-family:Rubik,sans-serif;font-weight:700;font-size:clamp(19px,5.2vw,24px);margin-top:6px;color:var(--plum)}
+.partof{margin-top:16px;background:#fff9;border:2px solid #ff9ccb;border-radius:18px;padding:8px 18px;font-size:17px;font-weight:600;color:var(--plum-2);max-width:100%}
+.partof small{display:block;font-size:17px;font-weight:600;color:var(--plum-2);line-height:1.35}
+.partof .en{color:var(--plum);font-weight:800}
+.cta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:10px 22px;border-radius:999px;font-weight:700;font-size:18px;text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s}
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{color:#fff;background:linear-gradient(100deg,var(--pink2),var(--pink));box-shadow:0 10px 24px -12px #d52f91b3}
-.btn-light{background:#fff;border:1px solid var(--line);color:var(--ink)}
-.product-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(25px,4vw,40px);color:#fff;background:radial-gradient(circle at 85% 10%,rgba(255,93,145,.48),transparent 38%),linear-gradient(150deg,#28133d 0%,#44215f 100%)}
-.product-card:after{content:"";position:absolute;width:230px;height:230px;left:-85px;bottom:-115px;border-radius:50%;border:35px solid #ffffff0b;pointer-events:none}
-.logo{font-family:Montserrat,Arial,sans-serif;direction:ltr;unicode-bidi:isolate;font-size:clamp(30px,4.5vw,48px);font-weight:900;line-height:1.05;letter-spacing:-.05em;margin:10px 0 7px}
-.logo .bug{color:#ff80b6}
-.slogan{font-family:Montserrat,Arial,sans-serif;direction:ltr;unicode-bidi:isolate;font-size:clamp(16px,2.4vw,23px);font-weight:700;margin-bottom:10px}
-.product-card h2{font-size:clamp(23px,3vw,30px);margin:15px 0 10px;color:#fff}
-.product-card p{color:#f1e5f8;line-height:1.6;position:relative;z-index:1}
-.product-card .small-note{font-size:15px;color:#dfcfe9;margin-top:14px}
-.section{margin-top:28px}
-.section-title{display:flex;gap:12px;align-items:center;font-size:clamp(26px,3.8vw,34px);margin:0 0 15px}
-.section-title .n{display:grid;place-items:center;flex:none;width:37px;height:37px;border-radius:13px;background:var(--blush);color:var(--pink);font:800 15px Montserrat,Arial,sans-serif;direction:ltr}
-.panel{background:rgba(255,255,255,.82);border:1px solid #fff;border-radius:var(--radius);padding:clamp(20px,3vw,30px);box-shadow:var(--shadow)}
-.bio-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
-.bio-main{font-size:18px;color:var(--ink2)}
-.bio-main p:last-child{margin-bottom:0}
-.bio-highlights{display:grid;gap:10px;align-content:start}
-.highlight{padding:13px 15px;background:#fff;border:1px solid var(--line);border-radius:16px}
-.highlight b{display:block;color:var(--pink);font-size:16px;margin-bottom:2px}
-.highlight span{display:block;font-size:16px;line-height:1.45;color:var(--ink2)}
-.origin{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.origin article{border-radius:20px;padding:22px;background:#fff;box-shadow:var(--shadow);border-top:4px solid #cdb9e7}
-.origin article:last-child{border-top-color:var(--pink)}
-.origin h3{font-size:21px;margin-bottom:8px}
-.origin p{color:var(--ink2);margin-bottom:0}
-.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.product{padding:22px;border-radius:22px;background:rgba(255,255,255,.88);border:1px solid #fff;box-shadow:var(--shadow)}
-.product.featured{border:2px solid #f49dcd;background:linear-gradient(145deg,#fff 20%,#fff0f8 100%)}
-.product-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:space-between;margin-bottom:12px}
-.product-name{font-size:20px;font-weight:900}
-.chip{font-size:13px;font-weight:800;border-radius:999px;padding:3px 9px;background:#f0e8f6;color:#614b70}
-.chip.free{background:#e5f6ec;color:#177747}
-.product h3{font-size:20px;margin:0 0 9px}
-.product p{color:var(--ink2);font-size:17px;margin-bottom:0;line-height:1.57}
-.video-wrap{background:#28133d;border-radius:26px;padding:13px;box-shadow:0 25px 50px -25px #28133d99}
-video{display:block;width:100%;aspect-ratio:16/9;max-height:600px;background:#11091a;border-radius:16px}
-.video-caption{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:#fff;padding:13px 7px 4px;font-size:16px}
-.video-caption a{color:#fff;text-decoration:underline;text-underline-offset:3px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.step{padding:18px;background:#fff;border:1px solid var(--line);border-radius:18px}
-.step-num{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:var(--lilac);color:#7540a0;font:800 15px Montserrat,Arial,sans-serif;margin-bottom:11px}
-.step h3{font-size:19px;margin-bottom:6px}
-.step p{font-size:16px;color:var(--ink2);margin-bottom:0;line-height:1.5}
-.ask{display:grid;grid-template-columns:.75fr 1.25fr;gap:22px;align-items:start;color:#fff;background:linear-gradient(120deg,#28133d,#4a2364);border-radius:26px;padding:clamp(24px,4vw,36px);box-shadow:var(--shadow)}
-.ask h2{font-size:clamp(25px,3vw,32px);margin:0 0 10px;color:#fff}
-.ask .intro{color:#eadcf2;margin:0}
-.ask ul{padding:0 22px 0 0;margin:0;display:grid;gap:10px}
-.ask li{padding-right:5px;color:#fff}
-.ask li::marker{color:#ff80b6}
-.ask b{color:#ffd9ec}
-.contact{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:30px;padding:20px 4px 0;border-top:1px solid #dacbe3}
-.contact-name{font-family:Rubik,sans-serif;font-size:22px;font-weight:800}
-.contact-actions{display:flex;gap:9px;flex-wrap:wrap}
-.foot{text-align:center;color:var(--muted);font-size:14px;margin-top:18px}
-@media(max-width:800px){
- main{padding:16px 14px 40px}
- .hero{grid-template-columns:1fr}
- .hero-copy,.product-card{border-radius:24px}
- .bio-grid,.ask{grid-template-columns:1fr}
- .product-grid{grid-template-columns:1fr}
- .product{padding:20px}
- .ask{gap:14px}
+.btn.main{color:#fff;background:linear-gradient(90deg,var(--pink),var(--magenta));box-shadow:0 12px 26px -12px rgba(201,49,143,.8)}
+.btn.alt{color:var(--plum);background:#fff;box-shadow:var(--shadow)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* big line */
+.promise{background:var(--plum);color:#fff;border-radius:var(--radius);padding:26px 28px;margin-bottom:10px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.promise:after{content:"";position:absolute;inset:auto -40px -60px auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,79,129,.55),transparent 65%)}
+.promise p{font-family:Rubik,sans-serif;font-size:clamp(22px,3.6vw,30px);font-weight:700;line-height:1.3;position:relative}
+.promise p b{color:var(--blush)}
+.promise small{display:block;margin-top:8px;font-size:17px;color:#e9d9f2;position:relative}
+
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin:44px 0 16px;display:flex;align-items:center;gap:12px}
+h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;background:var(--blush);color:var(--magenta);border-radius:999px;padding:3px 12px}
+.sub{font-size:18px;color:var(--plum-2);margin:-6px 0 16px}
+
+/* flow */
+.flow{background:var(--card);backdrop-filter:blur(8px);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 20px 18px}
+.studio-tag{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.pill{border-radius:999px;padding:5px 14px;font-size:16px;font-weight:700}
+.pill.studio{background:var(--plum);color:#fff}
+.pill.ai{background:#efe6ff;color:#6a2bb0}
+.steps{display:grid;grid-template-columns:1.15fr 1fr;gap:14px}
+.band{border-radius:18px;padding:14px;position:relative}
+.band.lbl{background:linear-gradient(135deg,#ffe3f1,#ffd3ee);border:2px solid #ff9ccb}
+.band.ai{background:linear-gradient(135deg,#f1eaff,#e9e0ff);border:2px dashed #c6a8f5}
+.band-h{display:flex;align-items:center;gap:8px;font-weight:700;margin-bottom:10px;font-size:17px}
+.band-h svg{width:22px;height:22px}
+.row{display:flex;flex-direction:column;gap:8px}
+.st{display:flex;align-items:center;gap:12px;background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 4px 12px -6px rgba(42,18,64,.25)}
+.st .ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--blush);color:var(--magenta)}
+.st .ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.band.ai .st .ic{background:#efe6ff;color:#6a2bb0}
+.st b{display:block;font-size:17px;line-height:1.25}
+.st span{font-size:16px;color:var(--muted);line-height:1.3}
+.loopmail{margin-top:14px;text-align:center;font-size:17px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+
+/* products */
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.prod{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 20px;display:flex;flex-direction:column;gap:10px;transition:transform .35s var(--ease)}
+.prod:hover{transform:translateY(-4px)}
+.prod .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.prod .name{font-size:22px}
+.prod .name .bug{color:var(--magenta)}
+.tag-chip{font-size:15px;font-weight:700;border-radius:999px;padding:2px 10px;background:#f3eef7;color:var(--plum-2)}
+.tag-chip.free{background:#e3f6ea;color:#177a43}
+.prod .simple{font-family:Rubik,sans-serif;font-weight:700;font-size:18px;line-height:1.35}
+.prod .tech{font-size:17px;color:var(--plum-2);border-top:1px dashed var(--line);padding-top:10px}
+.prod .tech b{color:var(--plum)}
+.prod.main{outline:3px solid #ff9ccb;outline-offset:-3px}
+
+/* status */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat{background:#fff;border-radius:18px;padding:18px;box-shadow:var(--shadow);text-align:center}
+.stat .big{font-family:Montserrat,sans-serif;font-weight:900;font-size:44px;color:var(--magenta);line-height:1.1;direction:ltr;unicode-bidi:isolate}
+.stat .lab{font-size:17px;color:var(--plum-2);font-weight:600}
+.ask{margin-top:16px;background:linear-gradient(135deg,var(--plum),#3b1a5a);color:#fff;border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow)}
+.ask h3{font-size:22px;margin-bottom:8px;color:var(--blush)}
+.ask ul{list-style:none;display:grid;gap:6px}
+.ask li{padding-inline-start:26px;position:relative}
+.ask li:before{content:"";position:absolute;inset-inline-start:0;top:.55em;width:12px;height:12px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 3px rgba(255,79,129,.25)}
+
+/* me */
+.me{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 24px}
+.me ul{list-style:none;display:grid;gap:8px}
+.me li{display:flex;gap:10px}
+.me li .d{flex:none;color:var(--magenta);font-weight:800}
+.me-lead{font-family:Rubik,sans-serif;font-weight:700;font-size:clamp(20px,3.2vw,24px);line-height:1.35;margin-bottom:14px}
+.me-stats{margin-bottom:16px}
+.me-stats .stat{box-shadow:0 4px 12px -6px rgba(42,18,64,.25)}
+
+/* film */
+.film{background:var(--plum);border-radius:26px;padding:14px;box-shadow:0 30px 60px -24px rgba(42,18,64,.6);scroll-margin-top:16px}
+.film video{width:100%;display:block;border-radius:16px;background:#000;aspect-ratio:16/9}
+.film-cap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:#fff;padding:12px 6px 4px}
+.film-cap a{color:#fff;background:linear-gradient(90deg,var(--pink),var(--magenta));padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;min-height:44px;display:inline-flex;align-items:center}
+.film-cap a:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+
+.contact{text-align:center;margin-top:44px}
+.contact .nm{font-family:Rubik,sans-serif;font-weight:800;font-size:26px}
+.contact .links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.cos{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px;font-family:Montserrat,sans-serif}
+.cos b{white-space:nowrap;font-weight:700}
+.me .cos{justify-content:flex-end}
+.foot.cos{justify-content:center;font-weight:600}
+.contact a{display:inline-flex;align-items:center;min-height:48px;margin-top:8px;color:var(--plum);font-weight:700;background:#fff;border-radius:999px;padding:10px 22px;box-shadow:var(--shadow);text-decoration:none}
+.foot{text-align:center;margin-top:30px;font-size:16px;color:var(--muted)}
+
+.ps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pcol{border-radius:var(--radius);padding:22px 22px 18px;box-shadow:var(--shadow)}
+.pcol h3{font-size:22px;margin-bottom:10px}
+.pcol ul{list-style:none;display:grid;gap:9px}
+.pcol li{line-height:1.45}
+.pcol .lead{margin-bottom:12px;line-height:1.5}
+.pain{background:#fff;border-top:5px solid #59636e}
+.pain b{color:var(--plum)}
+.gain{background:linear-gradient(135deg,#fff 0%,#ffeef7 100%);border-top:5px solid var(--magenta)}
+.gain b{color:#a8226f}
+@media (max-width:760px){
+  .ps{grid-template-columns:1fr}
+  .steps,.prods{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr;gap:10px}
+  .stat{padding:12px 16px;display:flex;align-items:center;gap:16px;text-align:start}
+  .stat .big{font-size:40px;min-width:92px;text-align:center}
+  .promise{padding:20px}
 }
-@media(max-width:560px){
- body{font-size:17px}
- .hero-copy{padding:23px}
- .product-card{padding:24px}
- .origin,.steps{grid-template-columns:1fr}
- .badges span{font-size:14px}
- .contact{align-items:flex-start;flex-direction:column}
- .contact-actions{width:100%}
- .contact-actions .btn{flex:1}
+@media (max-height:700px) and (max-width:760px){
+  main{padding-top:16px}
+  .hero{margin-bottom:22px}
+  .disc{width:68px;height:68px}.disc svg{width:34px;height:34px}
+  .who{margin-top:10px;font-size:19px}
+  .partof{margin-top:12px;padding:6px 14px}
+  .cta{margin-top:14px}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
+@media (min-width:761px){
+  .hero{padding-top:12px;margin-bottom:40px}
+  .disc{width:104px;height:104px}.disc svg{width:52px;height:52px}
+  .who{font-size:24px;margin-top:20px}
+  .tag-he{margin-top:10px}
+  .partof{font-size:20px;margin-top:22px}
+  .film{max-width:820px;margin-inline:auto}
+}
 </style>
 </head>
 <body>
-<a class="skip" href="#main">דילוג לתוכן</a>
-<main id="main">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+    <symbol id="i-rec" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 21h8M12 16v5"/><circle cx="12" cy="10" r="2"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 3h6v3H9zM9 12h6M9 16h4"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M9 16h6"/></symbol>
+    <symbol id="i-find" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+  </defs>
+</svg>
+<div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+<main>
+
 <header class="hero">
-  <section class="hero-copy" aria-labelledby="intro-title">
-    <span class="eyebrow">נעים להכיר</span>
-    <h1 id="intro-title">יפעת בירן</h1>
-    <div class="role">Senior Program Manager <span aria-hidden="true">·</span> יזמת טכנולוגית</div>
-    <p class="lead">יותר מ־25 שנות ניסיון בתוכנה, סייבר, QA והובלת תוכניות טכנולוגיות מורכבות, לצד רקע יצירתי באנימציה ובעריכת וידאו. כיום אני משלבת את שני העולמות בבניית מוצרי AI.</p>
-    <div class="badges" aria-label="חברות שבהן עבדתי">
-      <span>Cello</span><span>Proofpoint</span><span>IBM Trusteer</span>
+  <div class="rv" style="animation-delay:.05s">
+    <div class="disc bob" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+        <ellipse cx="12" cy="13" rx="7.5" ry="8" fill="#ffffff"/>
+        <path d="M12 5.5c-1.6 0-3 .7-4 1.8.9 1.1 2.4 1.7 4 1.7s3.1-.6 4-1.7c-1-1.1-2.4-1.8-4-1.8z" fill="#2a1240"/>
+        <path d="M12 5v16" stroke="#2a1240" stroke-width="1.2"/>
+        <circle cx="8.6" cy="12" r="1.15" fill="#2a1240"/>
+        <circle cx="15.4" cy="12" r="1.15" fill="#2a1240"/>
+        <circle cx="8.2" cy="16" r="1.05" fill="#2a1240"/>
+        <circle cx="15.8" cy="16" r="1.05" fill="#2a1240"/>
+        <circle cx="10" cy="3.6" r="1.3" fill="#2a1240"/>
+        <circle cx="14" cy="3.6" r="1.3" fill="#2a1240"/>
+      </svg>
     </div>
-    <p class="education"><b>B.Sc.</b> מדעי המחשב ומתמטיקה <span aria-hidden="true">·</span> <b>MBA</b> מערכות מידע</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="#what-im-looking-for">חיבורים לפיילוט</a>
-      <a class="btn btn-light" href="https://www.linkedin.com/in/ifat-biran-5b65063/" target="_blank" rel="noopener noreferrer">פרופיל LinkedIn</a>
-    </div>
-  </section>
-  <section class="product-card" aria-labelledby="product-title">
-    <span class="eyebrow" style="color:#ffaad2">המוצר המרכזי שלי</span>
-    <div>
-      <div class="logo en" aria-label="LadyBugLoop">Lady<span class="bug">Bug</span>Loop</div>
-      <div class="slogan">Speak the bug. Get the issue.</div>
-      <h2 id="product-title">מדברים את הבאג, מקבלים כרטיס.</h2>
-      <p>LadyBugLoop מאפשר לדווח על תקלה בקול, יחד עם הקלטת מסך ופרטים טכניים זמינים, ולהפיק כרטיס באג מסודר ל־Jira או ל־GitHub.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#demo">לצפייה בהדגמה</a>
-        <a class="btn btn-light" href="https://ladybugloop.com/" target="_blank" rel="noopener noreferrer">אתר המוצר</a>
-      </div>
-    </div>
-    <p class="small-note">אני מחפשת צוותי פיתוח ובדיקות ראשונים לבחינת המוצר בפיילוט.</p>
-  </section>
+  </div>
+  <div class="who rv" style="animation-delay:.12s"><b>יפעת בירן</b><span class="kicker"><i></i>מייסדת</span></div>
+  <h1 class="brand en rv" style="animation-delay:.18s" aria-label="LadyBugLoop">Lady<span class="bug">Bug</span>Loop</h1>
+  <p class="tag rv" style="animation-delay:.24s">Speak the bug. Get the issue.</p>
+  <p class="tag-he rv" style="animation-delay:.28s">מדברים את הבאג, מקבלים כרטיס.</p>
+  <div class="cta rv" style="animation-delay:.4s">
+    <a class="btn main" href="#film"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>לצפות בסרט</a>
+    <a class="btn alt" href="mailto:ifatbiran@gmail.com">לכתוב לי</a>
+    <a class="btn alt" href="https://ladybugloop.com/" target="_blank" rel="noopener">אתר המוצר</a>
+    <a class="btn alt" href="https://www.linkedin.com/in/ifat-biran-5b65063/" target="_blank" rel="noopener">הלינקדאין שלי</a>
+  </div>
 </header>
 
-<section class="section" aria-labelledby="about-title">
-  <h2 class="section-title" id="about-title"><span class="n">01</span>רקע שמחבר טכנולוגיה ויצירה</h2>
-  <div class="panel bio-grid">
-    <div class="bio-main">
-      <p>במהלך הקריירה הובלתי קבוצות QA ובדיקות אבטחה וניהלתי תוכניות פיתוח חוצות צוותים בחברות טכנולוגיה, בהן IBM Trusteer, Proofpoint ו־Cello.</p>
-      <p>במקביל לעולם הטכנולוגי, למדתי אנימציה ועריכת וידאו וגם עבדתי כאנימטורית. הרקע הזה חידד אצלי את החשיבות של תקשורת חזותית, פירוק תהליכים מורכבים והצגת מידע באופן ברור.</p>
-      <p>היום אני מביאה את השילוב הזה לבניית מוצרי AI: מהבנת הבעיה וחוויית המשתמש ועד לארכיטקטורה, לאינטגרציות ולבדיקות. LadyBugLoop נולד מתוך היכרות מעשית עם תהליכי QA ופיתוח ועם הקושי להפוך דיווח על תקלה למידע שמפתח יכול לפעול לפיו.</p>
-    </div>
-    <div class="bio-highlights">
-      <div class="highlight"><b>טכנולוגיה וניהול</b><span>Senior Program Manager, תוכניות פיתוח, QA וסייבר</span></div>
-      <div class="highlight"><b>יצירה ויזואלית</b><span>לימודי אנימציה ועריכת וידאו, וניסיון כאנימטורית</span></div>
-      <div class="highlight"><b>יזמות ובנייה</b><span>פיתוח מעשי של מוצרי AI וחוויות משתמש</span></div>
-    </div>
+<h2 class="rv" style="animation-delay:.32s"><span class="n">01</span>שלושת המוצרים</h2>
+<p class="sub rv" style="animation-delay:.34s">אני בונה שלושה מוצרים לצוותי פיתוח תוכנה, שכל אחד מהם נשען על הקודם. המוצר שאני מציגה כאן, ומחפשת לו צוותים לפיילוט, הוא <span class="en" style="font-weight:700">LadyBugLoop</span>.</p>
+<section class="prods">
+  <article class="prod main rv" style="animation-delay:.36s">
+    <div class="top"><span class="name en">Lady<span class="bug">Bug</span>Loop</span><span class="tag-chip">המוצר שאני מציגה</span></div>
+    <p class="simple">כלי לדיווח על באגים.</p>
+    <p class="tech">כפתור קטן בתוך האתר או האפליקציה. מי שנתקל בתקלה לוחץ ומספר בקול מה קרה. הכלי פותח כרטיס באג מלא ב־<span class="en" style="font-weight:700">GitHub</span> או ב־<span class="en" style="font-weight:700">Jira</span>, עם הקלטת מסך, שגיאות ותמלול.</p>
+  </article>
+  <article class="prod rv" style="animation-delay:.4s">
+    <div class="top"><span class="name en">bugloop.studio</span><span class="tag-chip">השלב הבא</span></div>
+    <p class="simple">מכרטיס באג לתיקון קוד.</p>
+    <p class="tech">צוות סוכני <span class="en" style="font-weight:700">AI</span> קורא את הכרטיס, כותב תיקון, מריץ עליו בדיקות ומגיש אותו למפתח לאישור.</p>
+  </article>
+  <article class="prod rv" style="animation-delay:.44s">
+    <div class="top"><span class="name en">LoopMail</span><span class="tag-chip free">קוד פתוח · חינם</span></div>
+    <p class="simple">התשתית שמתחת.</p>
+    <p class="tech">מאפשרת לכמה סוכני <span class="en" style="font-weight:700">AI</span> שעובדים על אותו קוד לתאם ביניהם, כמו דואר פנימי של צוות.</p>
+  </article>
+</section>
+
+<section class="promise rv" style="animation-delay:.45s;margin-top:18px">
+  <p>מהרגע שבאג נראה במסך <b>ועד תיקון מוכן</b> —<br>בלי שאף אחד כותב כרטיס.</p>
+  <small>הבודק רק מדבר. סוכני <span class="en" style="font-weight:600">AI</span> עושים את השאר. המפתח מאשר.</small>
+</section>
+
+<h2 class="rv" style="animation-delay:.48s"><span class="n">02</span>הבעיה, ומה זה חוסך</h2>
+<section class="ps">
+  <div class="pcol pain rv" style="animation-delay:.5s">
+    <h3>הבעיה</h3>
+    <p class="lead">בכל חברת תוכנה, תקלה שנמצאת בבדיקות או אצל לקוח צריכה להפוך ל<b>כרטיס באג</b>: מסמך שהמפתח עובד ממנו. כרטיס טוב כולל מה עשו, מה היה צפוי, מה קרה בפועל, באיזה מכשיר ודפדפן, ואת השגיאות שנרשמו ברקע.</p>
+    <ul>
+      <li><b>כתיבת כרטיס כזה לוקחת זמן</b>, ולכן רוב הכרטיסים יוצאים חלקיים: "זה לא עובד", בלי צעדים ובלי פרטים.</li>
+      <li><b>המפתח לא מצליח לשחזר את התקלה</b>, וחוזר לבודק עם שאלות. בינתיים שניהם עברו למשימה אחרת.</li>
+      <li><b>מי שאינו בודק מקצועי</b> (מנהל מוצר, איש מכירות, לקוח) כמעט לא מסוגל לכתוב כרטיס שמפתח יכול לעבוד ממנו.</li>
+      <li><b>התוצאה:</b> תקלה שהתיקון שלה קצר נשארת פתוחה ימים, והגרסה מתעכבת.</li>
+    </ul>
+  </div>
+  <div class="pcol gain rv" style="animation-delay:.54s">
+    <h3>מה <span class="en" style="font-weight:800">LadyBugLoop</span> חוסך</h3>
+    <ul>
+      <li><b>זמן כתיבה:</b> לחיצה ומשפט בקול במקום טופס וצילומי מסך. הכלי כותב את הכרטיס.</li>
+      <li><b>זמן שחזור:</b> הקלטת המסך, השגיאות ופרטי המכשיר כבר בתוך הכרטיס. המפתח רואה מה קרה.</li>
+      <li><b>הלוך־חזור:</b> כשחסר פרט, ה־<span class="en" style="font-weight:700">AI</span> שואל את המדווח שאלת המשך מיד, כשהתקלה עוד מול העיניים שלו.</li>
+      <li><b>כל אחד יכול לדווח:</b> גם מי שאינו בודק מקצועי מוסר כרטיס ברמה של בודק.</li>
+      <li><b>עלות:</b> התשלום לפי פרויקט, לא לפי מדווח.</li>
+    </ul>
   </div>
 </section>
 
-<section class="section" aria-labelledby="problem-title">
-  <h2 class="section-title" id="problem-title"><span class="n">02</span>למה LadyBugLoop?</h2>
-  <div class="origin">
-    <article>
-      <h3>הבעיה שאני מכירה מקרוב</h3>
-      <p>כרטיסי באג נכתבים לא פעם בחיפזון, חסרים בהם שלבי שחזור ופרטים חשובים, ואז מתחיל סבב שאלות בין הבודק למפתח. הזמן מתבזבז על ניסוח, הבהרות וניסיון לשחזר את התקלה.</p>
-    </article>
-    <article>
-      <h3>הגישה של LadyBugLoop</h3>
-      <p>המדווח מתאר את התקלה בקול, והדיווח מלווה בהקלטת מסך ובמידע טכני זמין. המטרה היא להפיק כרטיס ברור ושימושי יותר, לצמצם הלוך־חזור ולעזור לצוות להתמקד בתיקון.</p>
-    </article>
+<h2 class="rv" style="animation-delay:.5s" id="film-h"><span class="n">03</span>הסרט</h2>
+<section class="film rv" style="animation-delay:.52s" id="film">
+  <video controls preload="metadata" playsinline poster="poster.jpg">
+    <source src="film.mp4" type="video/mp4">
+  </video>
+  <div class="film-cap">
+    <span><span class="en" style="font-weight:700">LadyBugLoop</span> — מדברים את הבאג, מקבלים כרטיס</span>
+    <a href="film.mp4" target="_blank" rel="noopener">פתיחת הסרט במסך מלא</a>
   </div>
 </section>
 
-<section class="section" aria-labelledby="ecosystem-title">
-  <h2 class="section-title" id="ecosystem-title"><span class="n">03</span>מוצר מרכזי, חזון רחב יותר</h2>
-  <div class="product-grid">
-    <article class="product featured">
-      <div class="product-top"><span class="product-name en">LadyBugLoop</span><span class="chip">מחפש צוותי פיילוט</span></div>
-      <h3>מדיווח לתיעוד באג</h3>
-      <p>כלי לדיווח על באגים באמצעות קול, עם הקלטת מסך, תמלול ופרטים טכניים זמינים, ויצירת כרטיס ל־Jira או ל־GitHub.</p>
-    </article>
-    <article class="product">
-      <div class="product-top"><span class="product-name en">bugloop.studio</span><span class="chip">כיוון ההמשך</span></div>
-      <h3>מכרטיס באג לתיקון קוד</h3>
-      <p>חזון למערכת סוכני AI שמסייעת לנתח את הכרטיס, לפתח תיקון ולהריץ בדיקות, עם אישור המפתח בתהליך.</p>
-    </article>
-    <article class="product">
-      <div class="product-top"><span class="product-name en">LoopMail</span><span class="chip free">קוד פתוח</span></div>
-      <h3>תקשורת בין סוכני AI</h3>
-      <p>תשתית פתוחה לתיאום ולתקשורת בין סוכני AI שעובדים על אותו קוד, ללא צורך במערכת דואר מרכזית.</p>
-    </article>
+<h2 class="rv" style="animation-delay:.65s"><span class="n">04</span>איך זה עובד</h2>
+<section class="flow rv" style="animation-delay:.68s" aria-label="תרשים הזרימה">
+  <div class="studio-tag">
+    <span class="pill studio"><span class="en">bugloop.studio</span> · הלולאה המלאה</span>
+    <span style="font-size:16px;color:var(--muted)">מבודק — חזרה לאותו בודק</span>
   </div>
-</section>
-
-<section class="section" id="demo" aria-labelledby="demo-title">
-  <h2 class="section-title" id="demo-title"><span class="n">04</span>הדגמת LadyBugLoop</h2>
-  <div class="video-wrap">
-    <video controls preload="metadata" playsinline poster="poster.jpg" aria-label="הדגמת LadyBugLoop">
-      <source src="film.mp4" type="video/mp4">
-      הדפדפן שלך אינו תומך בניגון וידאו.
-    </video>
-    <div class="video-caption">
-      <span><span class="en">LadyBugLoop</span> · מדברים את הבאג, מקבלים כרטיס</span>
-      <a href="film.mp4" target="_blank" rel="noopener noreferrer">פתיחת הסרט בחלון נפרד</a>
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="flow-title">
-  <h2 class="section-title" id="flow-title"><span class="n">05</span>איך זה עובד</h2>
   <div class="steps">
-    <article class="step"><div class="step-num">01</div><h3>מדווחים בקול</h3><p>הבודק או המשתמש מתארים מה קרה, בלי להתחיל ממילוי טופס ארוך.</p></article>
-    <article class="step"><div class="step-num">02</div><h3>אוספים הקשר</h3><p>הדיווח יכול לכלול הקלטת מסך, תמלול ופרטים טכניים זמינים לתחקור.</p></article>
-    <article class="step"><div class="step-num">03</div><h3>יוצרים כרטיס</h3><p>המידע מתארגן לכרטיס באג ברור יותר, שאפשר להעביר לכלי העבודה של הצוות.</p></article>
+    <div class="band lbl">
+      <div class="band-h">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#c9318f"/><g transform="translate(4.8 4.8) scale(.6)"><ellipse cx="12" cy="13" rx="7.5" ry="8" fill="#fff"/><path d="M12 5v16" stroke="#2a1240" stroke-width="1.2"/><circle cx="8.6" cy="12" r="1.15" fill="#2a1240"/><circle cx="15.4" cy="12" r="1.15" fill="#2a1240"/><circle cx="8.2" cy="16" r="1.05" fill="#2a1240"/><circle cx="15.8" cy="16" r="1.05" fill="#2a1240"/></g></svg>
+        <span class="en">LadyBugLoop</span>
+      </div>
+      <div class="row">
+        <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-mic"/></svg></div><div><b>הבודק לוחץ ומדבר</b><span>"לחצתי פה וזה נתקע"</span></div></div>
+        <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-rec"/></svg></div><div><b>הכול נאסף לבד</b><span>הקלטת מסך, שגיאות, רשת, תמלול</span></div></div>
+        <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-card"/></svg></div><div><b>כרטיס באג מלא</b><span>צעדים לשחזור, צפוי מול בפועל</span></div></div>
+      </div>
+    </div>
+    <div class="band ai">
+      <div class="band-h"><span class="pill ai">סוכני <span class="en" style="font-weight:700">AI</span> לתיקון</span></div>
+      <div class="row">
+        <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-bot"/></svg></div><div><b>הסוכנים כותבים תיקון</b><span>במקביל, עם סוכן מנהל</span></div></div>
+        <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-find"/></svg></div><div><b>בדיקה אוטומטית</b><span>סקירת קוד ובדיקות</span></div></div>
+        <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-ok"/></svg></div><div><b>המפתח מאשר</b><span>והבודק רואה שזה עובד</span></div></div>
+      </div>
+    </div>
   </div>
+  <p class="loopmail">הסוכנים מתאמים ביניהם דרך <span class="en" style="font-weight:700">LoopMail</span> (קוד פתוח)</p>
 </section>
 
-<section class="section ask" id="what-im-looking-for" aria-labelledby="ask-title">
-  <div>
-    <span class="eyebrow" style="color:#ffaad2">השלב הבא</span>
-    <h2 id="ask-title">מה אני מחפשת עכשיו?</h2>
-    <p class="intro">אני רוצה להעמיד את המוצר מול צוותים אמיתיים, ללמוד מהשימוש ולחדד את ההתאמה לצרכים בשטח.</p>
+<section class="ask rv" style="animation-delay:1.05s">
+  <h3>מה אני מחפשת</h3>
+  <ul>
+    <li>צוותי פיתוח ובדיקות ראשונים לפיילוט</li>
+    <li>ייעוץ באסטרטגיית כניסה לשוק, <span class="en nw" style="font-weight:700">Go-To-Market</span>: איזה ערוץ להפעיל ראשון, מכירה ישירה לחברות, שיווק דיגיטלי ממומן או שותפויות הפצה</li>
+    <li>שיחה של חצי שעה, עם הדגמה חיה של באג שהופך לתיקון</li>
+  </ul>
+</section>
+
+<h2 class="rv" style="animation-delay:1.08s"><span class="n">05</span>עליי</h2>
+<section class="me rv" style="animation-delay:1.1s">
+  <p class="me-lead">מנהלת תוכניות טכנולוגיה ואיכות, עם יותר מ־20 שנה בתוכנה ובסייבר. היום מייסדת וארכיטקטית <span class="en" style="font-weight:800">AI</span>.</p>
+  <div class="stats me-stats">
+    <div class="stat"><div class="big">20+</div><div class="lab">שנים בתוכנה, סייבר ואיכות</div></div>
+    <div class="stat"><div class="big">3</div><div class="lab">מוצרים שבניתי מקצה לקצה</div></div>
+    <div class="stat"><div class="big en" style="font-size:26px;line-height:1.15">B.Sc<br>MBA</div><div class="lab">מדעי המחשב ומתמטיקה, מערכות מידע</div></div>
   </div>
   <ul>
-    <li><b>חיבורים למנהלי QA, פיתוח או CTOs</b> בחברות תוכנה שיוכלו לבחון את LadyBugLoop בפיילוט.</li>
-    <li><b>שיחת היכרות והדגמה קצרה</b> כדי לבדוק התאמה לצוות ולתהליך העבודה שלו.</li>
-    <li>בהמשך, היכרות עם אנשים בעלי ניסיון ב־Go-To-Market למוצרי DevTools ו־B2B SaaS.</li>
+    <li><span class="d">●</span><span><b>הובלתי קבוצות <span class="en" style="font-weight:700">QA</span> ובדיקות אבטחה</b>, ותוכניות פיתוח חוצות צוותים כמנהלת תוכניות בכירה וכ־<span class="en" style="font-weight:700">PMO</span>, בחברות טכנולוגיה וסייבר בינלאומיות.</span></li>
+    <li><span class="d">●</span><span><b>ראיתי מבפנים, שנים, איך באגים נופלים בין הבודק למפתח.</b> <span class="en" style="font-weight:700">LadyBugLoop</span> נולד מהפער הזה.</span></li>
+    <li><span class="d">●</span><span><b>בניתי לבד, עם צוות סוכני <span class="en" style="font-weight:700">AI</span>, שלושה מוצרים מקצה לקצה:</b> רעיון, חוויית משתמש, ארכיטקטורה, <span class="en" style="font-weight:700">AI</span> ובדיקות. אני משתמשת בהם כל יום.</span></li>
   </ul>
 </section>
 
 <footer class="contact">
-  <div>
-    <div class="contact-name">יפעת בירן</div>
-    <div style="color:var(--muted);font-size:16px">Senior Program Manager · יזמת טכנולוגית</div>
-  </div>
-  <div class="contact-actions">
-    <a class="btn btn-primary" href="mailto:ifatbiran@gmail.com">ליצירת קשר</a>
-    <a class="btn btn-light" href="https://www.linkedin.com/in/ifat-biran-5b65063/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    <a class="btn btn-light" href="https://ladybugloop.com/" target="_blank" rel="noopener noreferrer">LadyBugLoop</a>
+  <div class="nm">יפעת בירן</div>
+  <div class="links">
+    <a href="mailto:ifatbiran@gmail.com"><span class="en" style="font-weight:700">ifatbiran@gmail.com</span></a>
+    <a href="https://ladybugloop.com/" target="_blank" rel="noopener"><span class="en" style="font-weight:700">ladybugloop.com</span></a>
+    <a href="https://www.linkedin.com/in/ifat-biran-5b65063/" target="_blank" rel="noopener"><span class="en" style="font-weight:700">LinkedIn</span></a>
   </div>
 </footer>
-<p class="foot">LadyBugLoop · bugloop.studio · LoopMail</p>
+<p class="foot cos" dir="ltr"><b>LadyBugLoop</b><b>bugloop.studio</b><b>LoopMail</b></p>
 </main>
 </body>
 </html>
