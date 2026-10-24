@@ -14,6 +14,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<script>
+/* saved light/dark choice, applied before paint; falls back to the system setting */
+(function(){try{var t=localStorage.getItem('lbl-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 <style>
 /* LadyBugLoop design system (bugloop docs/DESIGN-SYSTEM.md): grey paper, flat white cards,
    ONE accent = logo pink, the logo disc is the only gradient, no glow, no emoji. */
@@ -60,6 +64,13 @@ a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius
 
 .lang{margin-left:auto;font-size:15px;font-weight:700;color:var(--ink-2);text-decoration:none;min-height:44px;display:inline-flex;align-items:center;padding:0 4px}
 @media (hover:hover){.lang:hover{color:var(--accent)}}
+.thm{width:44px;height:44px;border:0;border-radius:50%;background:var(--xbg);color:var(--ink);display:grid;place-items:center;cursor:pointer;margin-left:8px;flex:none}
+.thm svg{width:20px;height:20px}
+.thm .sun{display:none}
+:root[data-theme="dark"] .thm .sun{display:block}
+:root[data-theme="dark"] .thm .moon{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .thm .sun{display:block}:root:not([data-theme="light"]) .thm .moon{display:none}}
+.thm:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 /* hero: who + the line + the ask, one card */
 .hero{background:var(--card);border-radius:var(--radius-lg);padding:30px 22px 26px;margin-top:4px}
 .name{font-weight:900;font-size:clamp(40px,9vw,68px);line-height:1;letter-spacing:-.025em}
@@ -192,6 +203,7 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
     <span class="word">LADYBUGLOOP</span>
   </a>
   <a class="lang en" href="en/" hreflang="en" lang="en">English</a>
+  <button type="button" class="thm" aria-label="מצב בהיר או כהה"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
 </header>
 
 <main>
@@ -256,5 +268,11 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
 
 </div>
 <script src="demo.js" defer></script>
+<script>
+(function(){var b=document.querySelector('.thm');if(!b)return;var r=document.documentElement;
+function cur(){var t=r.getAttribute('data-theme');if(t)return t;return (window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}
+b.setAttribute('aria-pressed',cur()==='dark'?'true':'false');
+b.addEventListener('click',function(){var n=cur()==='dark'?'light':'dark';r.setAttribute('data-theme',n);b.setAttribute('aria-pressed',n==='dark'?'true':'false');try{localStorage.setItem('lbl-theme',n);}catch(e){}});})();
+</script>
 </body>
 </html>
