@@ -141,7 +141,10 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
 
 /* v3: half me, marketing lines, half product */
 .me-q{margin-top:18px;font-weight:700;font-size:clamp(17px,2.3vw,19px);line-height:1.5;padding-inline-start:14px;border-inline-start:4px solid var(--accent)}
-.me .cta{margin-top:20px}
+.me .cta{margin-top:18px}
+.me .tiles{margin:22px 0 0}
+.does{margin-top:12px;font-size:clamp(17px,2.2vw,19px);font-weight:500}
+.vlen{font-size:14px;font-weight:700;color:var(--ink-2);margin:18px 2px 0}
 .lines{padding:44px 4px 40px;text-align:center}
 .lines .big{font-weight:900;font-size:clamp(27px,5.2vw,44px);line-height:1.15;letter-spacing:-.015em}
 .lines .big .acc{color:var(--accent)}
@@ -190,17 +193,19 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
   <section class="hero me">
     <div class="name rv">יפעת בירן</div>
     <div class="role rv" style="animation-delay:.06s">יזמת טכנולוגית ומייסדת <span class="en">LadyBugLoop</span><span class="sub en">Senior Program Manager</span></div>
-    <div class="tiles rv" style="animation-delay:.12s">
-      <div class="tile"><b>26+</b><span>שנים בתעשיית התוכנה</span></div>
-      <div class="tile"><b>10+</b><span>שנים בהובלת צוותי <span class="en">QA</span></span></div>
-      <div class="tile"><b>6+</b><span>שנים בניהול תוכניות בכיר מקצה לקצה</span></div>
-      <div class="tile"><b>5</b><span>מוצרים בפיתוח עם סוכני <span class="en">AI</span></span></div>
-    </div>
-    <p class="me-q rv" style="animation-delay:.18s">ליוויתי וניהלתי את כל מחזור חיי הפיתוח של המוצר, וראיתי בדיוק איפה הדברים נופלים.</p>
+    <p class="does rv" style="animation-delay:.09s">בונה את <span class="en">LadyBugLoop</span>: מתיאור באג, בקול או בכתב, לכרטיס מוכן לתיקון.</p>
     <div class="cta rv" style="animation-delay:.24s">
+      <a class="btn pri" href="mailto:ifatbiran@gmail.com?subject=LadyBugLoop%20demo">קביעת הדגמה קצרה</a>
       <a class="btn neu" href="https://www.linkedin.com/in/ifat-biran-5b65063/" target="_blank" rel="noopener"><span class="en">LinkedIn</span></a>
       <a class="btn neu" href="../me/">עוד עליי</a>
     </div>
+    <div class="tiles rv" style="animation-delay:.12s">
+      <div class="tile"><b>26+</b><span>שנים בתוכנה</span></div>
+      <div class="tile"><b>10+</b><span>שנים בהובלת <span class="en">QA</span></span></div>
+      <div class="tile"><b>6+</b><span>שנים בניהול תוכניות</span></div>
+      <div class="tile"><b>5</b><span>מוצרים בפיתוח</span></div>
+    </div>
+    <p class="me-q rv" style="animation-delay:.18s">ליוויתי וניהלתי את כל מחזור חיי הפיתוח של המוצר, וראיתי בדיוק איפה הדברים נופלים.</p>
   </section>
 
   <!-- between: the marketing lines -->
@@ -213,8 +218,9 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
   <section class="card prod">
     <div class="pname en">Lady<span class="bug">Bug</span>Loop</div>
     <p class="tag1">מתיאור קצר, בקול או בכתב, לכרטיס באג מלא ב־<span class="en">Jira</span> או ב־<span class="en">GitHub</span>.</p>
-    <div class="film" id="film">
-      <video controls preload="metadata" playsinline poster="../poster.jpg">
+    <p class="vlen">סרטון, דקה וחצי</p>
+    <div class="film" id="film" style="margin-top:8px">
+      <video controls preload="metadata" playsinline poster="poster-issue.jpg">
         <source src="../film.mp4" type="video/mp4">
       </video>
     </div>
