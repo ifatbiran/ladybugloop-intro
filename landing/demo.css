@@ -1,0 +1,83 @@
+/* Live demo: the visitor asks the ladybug for a change, the page changes. LadyBugLoop design system:
+   one accent, logo disc is the only gradient, no glow, motion = transform/opacity only. */
+.dm-fab{position:fixed;right:16px;bottom:16px;z-index:50;width:60px;height:60px;border:0;border-radius:50%;padding:0;cursor:pointer;
+  background:linear-gradient(135deg,#ff5470 0%,#b829e3 100%);display:grid;place-items:center;
+  box-shadow:0 10px 24px -10px rgba(0,0,0,.45);transition:transform .25s var(--ease)}
+.dm-fab svg{width:36px;height:36px}
+.dm-fab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media (hover:hover){.dm-fab:hover{transform:scale(1.06)}}
+.dm-fab.dm-hide{transform:scale(0);pointer-events:none}
+.dm-fab .dm-pulse{position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--accent);opacity:0;animation:dmPulse 2.4s var(--ease) 1.2s 3}
+@keyframes dmPulse{0%{opacity:.7;transform:scale(.9)}100%{opacity:0;transform:scale(1.25)}}
+
+.dm-hint{position:fixed;right:84px;bottom:28px;z-index:50;max-width:210px;background:var(--band);color:var(--band-ink);font-size:15px;font-weight:700;line-height:1.35;
+  padding:10px 14px;border-radius:14px;opacity:0;transform:translateX(8px);transition:opacity .35s var(--ease),transform .35s var(--ease);pointer-events:none}
+.dm-hint.dm-on{opacity:1;transform:none}
+
+.dm-sheet{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:440px;margin-inline:auto;max-height:min(66vh,560px);overflow:auto;
+  background:var(--card);color:var(--ink);border-radius:20px;padding:16px 18px 18px;box-shadow:0 24px 60px -20px rgba(0,0,0,.5);
+  transform:translateY(calc(100% + 24px));transition:transform .45s var(--ease)}
+.dm-sheet.dm-open{transform:none}
+@media (min-width:760px){.dm-sheet{left:auto;right:92px;bottom:20px;width:400px}}
+.dm-head{display:flex;align-items:center;gap:10px}
+.dm-head .disc{width:30px;height:30px}
+.dm-head .disc svg{width:20px;height:20px}
+.dm-ttl{font-weight:800;font-size:16px;flex:1}
+.dm-tag{font-size:12px;font-weight:700;background:var(--xbg);color:var(--ink-2);padding:2px 8px;border-radius:999px}
+.dm-x{width:36px;height:36px;border:0;border-radius:50%;background:var(--xbg);color:var(--ink);font-size:20px;line-height:1;cursor:pointer}
+.dm-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:14px 0 12px;list-style:none;padding:0}
+.dm-steps li{font-size:12.5px;font-weight:700;color:var(--ink-2);text-align:center;padding-top:8px;border-top:3px solid var(--hair);transition:color .3s,border-color .3s}
+.dm-steps li.dm-now{color:var(--accent);border-color:var(--accent)}
+.dm-steps li.dm-done{color:var(--ink);border-color:var(--ink-2)}
+.dm-body h4{font-weight:800;font-size:18px;margin-bottom:8px}
+.dm-body p{font-size:15px;color:var(--ink-2)}
+.dm-top1{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+.dm-top1 h4{margin:0}
+.dm-modes{display:flex;gap:6px}
+.dm-mode{font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--xbg);color:var(--ink-2)}
+.dm-mode.dm-sel{background:var(--accent-soft);color:var(--accent)}
+.dm-note{min-height:52px;background:var(--paper);border-radius:12px;padding:10px 12px;font-size:15px;color:var(--ink)}
+.dm-note .dm-caret{display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:-2px;animation:dmBlink 1s steps(1) infinite}
+@keyframes dmBlink{50%{opacity:0}}
+.dm-sw{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}
+.dm-sw button{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:4px 10px 4px 8px;border:2px solid var(--hair);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-size:13.5px;font-weight:700;cursor:pointer}
+.dm-sw button i{width:16px;height:16px;border-radius:50%;flex:none}
+.dm-sw button[aria-pressed="true"]{border-color:var(--ink)}
+.dm-att{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;opacity:0;transition:opacity .4s}
+.dm-att.dm-on{opacity:1}
+.dm-att span{font-size:12.5px;font-weight:700;background:var(--accent-soft);color:var(--accent);padding:3px 10px;border-radius:999px}
+.dm-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.dm-row .btn{min-height:44px;padding:8px 20px;font-size:16px;border:0;cursor:pointer;font-family:inherit}
+.dm-row .btn[disabled]{opacity:.45;cursor:default}
+.dm-ticket{border:1.5px solid var(--hair);border-radius:14px;padding:12px 14px}
+.dm-ticket b{display:block;font-size:15px;margin-bottom:6px}
+.dm-ticket .dm-lab{display:inline-block;font-size:12px;font-weight:700;background:var(--accent-soft);color:var(--accent);padding:1px 8px;border-radius:999px;margin-inline-end:4px}
+.dm-ticket ul{margin:8px 0 0;padding-inline-start:18px;font-size:13.5px;color:var(--ink-2)}
+.dm-ticket code{display:block;margin-top:8px;font-size:12px;background:var(--paper);border-radius:8px;padding:6px 8px;direction:ltr;text-align:left;color:var(--ink-2);overflow-wrap:anywhere}
+.dm-timer{margin-top:10px;font-weight:800;font-size:15px}
+.dm-timer span{color:var(--accent);direction:ltr;unicode-bidi:isolate}
+.dm-check{list-style:none;padding:0;display:grid;gap:8px;margin-top:4px}
+.dm-check li{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink-2);opacity:.4;transition:opacity .3s}
+.dm-check li::before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid var(--hair);flex:none;transition:background-color .3s,border-color .3s}
+.dm-check li.dm-ok{opacity:1;color:var(--ink)}
+.dm-check li.dm-ok::before{background:var(--accent);border-color:var(--accent)}
+.dm-body .dm-fin{font-weight:800;font-size:17px;color:var(--ink)}
+
+/* the clean ellipse around the target, drawn on */
+.dm-ring{position:absolute;z-index:40;pointer-events:none;transition:opacity .4s var(--ease)}
+.dm-ring.dm-fade{opacity:0}
+.dm-ring svg{width:100%;height:100%;overflow:visible}
+.dm-ring path{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .9s var(--ease)}
+.dm-ring.dm-on path{stroke-dashoffset:0}
+
+/* the change itself */
+html.dm-c .btn.pri{background:var(--dm-c)!important;color:#fff!important}
+.btn.pri{transition:background-color .6s var(--ease),transform .2s var(--ease)}
+.dm-flash{animation:dmFlash .7s var(--ease)}
+@keyframes dmFlash{40%{transform:scale(1.08)}}
+
+@media (prefers-reduced-motion:reduce){
+  .dm-fab,.dm-hint,.dm-sheet,.dm-steps li,.dm-att,.dm-check li,.btn.pri{transition:none}
+  .dm-fab .dm-pulse,.dm-note .dm-caret,.dm-flash{animation:none}
+  .dm-ring path{transition:none}
+}
