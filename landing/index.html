@@ -138,6 +138,29 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
 .rv{opacity:0;transform:translateY(14px);animation:up .6s var(--ease) forwards}
 @keyframes up{to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.rv{animation:none;opacity:1;transform:none}.btn{transition:none}}
+
+/* v3: half me, marketing lines, half product */
+.me-q{margin-top:18px;font-weight:700;font-size:clamp(17px,2.3vw,19px);line-height:1.5;padding-inline-start:14px;border-inline-start:4px solid var(--accent)}
+.me .cta{margin-top:20px}
+.lines{padding:44px 4px 40px;text-align:center}
+.lines .big{font-weight:900;font-size:clamp(27px,5.2vw,44px);line-height:1.15;letter-spacing:-.015em}
+.lines .big .acc{color:var(--accent)}
+.lines .pain{margin:16px auto 0;max-width:560px;font-size:clamp(17px,2.3vw,19px);color:var(--ink-2)}
+.prod .pname{text-align:right;font-weight:900;font-size:clamp(30px,6vw,44px);letter-spacing:-.01em;line-height:1.1}
+.prod .pname .bug{color:var(--accent)}
+.prod .tag1{color:var(--ink-2);margin-top:6px;font-size:clamp(17px,2.2vw,19px)}
+.prod .film{background:var(--paper);margin-top:18px}
+.how{list-style:none;display:grid;gap:10px;margin-top:20px;counter-reset:h}
+.how li{display:flex;gap:12px;align-items:baseline;font-size:16px;color:var(--ink-2)}
+.how li::before{counter-increment:h;content:counter(h);flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:900;font-size:15px;display:grid;place-items:center;transform:translateY(5px)}
+.how b{color:var(--ink)}
+.kpi{display:flex;align-items:baseline;gap:10px;margin-top:20px;padding:14px 16px;border-radius:var(--radius);background:var(--accent-soft)}
+.kpi b{font-weight:900;font-size:40px;line-height:1;color:var(--accent);direction:ltr;unicode-bidi:isolate}
+.kpi span{font-size:15px;color:var(--ink)}
+.studio{margin-top:14px;font-size:15px;color:var(--ink-2)}
+.studio b{color:var(--ink)}
+.prod .cta{margin-top:22px}
+@media (min-width:760px){.prod{padding:44px}}
 </style>
 </head>
 <body>
@@ -163,100 +186,48 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
 </header>
 
 <main>
-  <section class="hero">
+  <!-- half 1: me -->
+  <section class="hero me">
     <div class="name rv">יפעת בירן</div>
     <div class="role rv" style="animation-delay:.06s">יזמת טכנולוגית ומייסדת <span class="en">LadyBugLoop</span><span class="sub en">Senior Program Manager</span></div>
-
     <div class="tiles rv" style="animation-delay:.12s">
       <div class="tile"><b>26+</b><span>שנים בתעשיית התוכנה</span></div>
       <div class="tile"><b>10+</b><span>שנים בהובלת צוותי <span class="en">QA</span></span></div>
       <div class="tile"><b>6+</b><span>שנים בניהול תוכניות בכיר מקצה לקצה</span></div>
       <div class="tile"><b>5</b><span>מוצרים בפיתוח עם סוכני <span class="en">AI</span></span></div>
     </div>
-
-    <h1 class="rv" style="animation-delay:.18s">הקוד נכתב בקצב של בינה מלאכותית.<br>דיווח הבאגים והטיפול בהם חייבים לעמוד <span class="acc">באותו קצב.</span></h1>
-    <p class="lead rv" style="animation-delay:.24s">דיווחי באגים חסרים ולא מדויקים הם מהגורמים המרכזיים לבזבוז זמן פיתוח ובדיקות בארגונים. במשך יותר מעשור הובלתי צוותי <span class="en">QA</span> והכרתי את האתגר הזה ממקור ראשון. כיום אני מובילה פיתוח של פתרון מבוסס <span class="en">AI</span> שהופך דיווח של בודק לכרטיס מוכן לתיקון, תוך פחות מ־30&nbsp;שניות. ואת הטיפול בבאג, מהתיקון ועד אישור הבודק, מוביל <span class="en">bugloop.studio</span>.</p>
-    <div class="cta rv" style="animation-delay:.3s">
-      <a class="btn pri" href="mailto:ifatbiran@gmail.com?subject=LadyBugLoop%20demo">קביעת הדגמה קצרה</a>
-      <a class="btn sec" href="#film"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>לצפייה בסרטון</a>
+    <p class="me-q rv" style="animation-delay:.18s">ליוויתי וניהלתי את כל מחזור חיי הפיתוח של המוצר, וראיתי בדיוק איפה הדברים נופלים.</p>
+    <div class="cta rv" style="animation-delay:.24s">
       <a class="btn neu" href="https://www.linkedin.com/in/ifat-biran-5b65063/" target="_blank" rel="noopener"><span class="en">LinkedIn</span></a>
+      <a class="btn neu" href="../me/">עוד עליי</a>
     </div>
   </section>
 
-  <div class="film" id="film">
-    <video controls preload="metadata" playsinline poster="../poster.jpg">
-      <source src="../film.mp4" type="video/mp4">
-    </video>
-    <div class="film-cap">מתיאור חופשי, בקול או בכתב, לכרטיס מפורט ב־<span class="en">Jira</span> או ב־<span class="en">GitHub</span>.</div>
-  </div>
-
-  <section class="blk">
-    <div class="card">
-      <div class="kicker">מבפנים</div>
-      <p class="quote">בשנים האחרונות, כמנהלת תוכניות, ליוויתי וניהלתי את כל מחזור חיי הפיתוח של המוצר, וראיתי בדיוק איפה הדברים נופלים.</p>
-      <div class="facts">
-        <div class="fact">
-          <h3>אנטרפרייז, סייבר ומוצרי מדף</h3>
-          <p>ניסיון בארגונים גדולים ובחברות צומחות, באותו פער בכל מקום.</p>
-        </div>
-        <div class="fact">
-          <h3>מובילה פיתוח עם סוכני <span class="en">AI</span></h3>
-          <p>5 מוצרים בפיתוח, ביניהם <span class="en">LadyBugLoop</span> ו־<span class="en">bugloop.studio</span>.</p>
-        </div>
-        <div class="fact">
-          <h3>הנדסה וחשיבה חזותית</h3>
-          <p>מדעי המחשב, <span class="en">MBA</span>, ורקע באנימציה ובעריכת וידאו.</p>
-        </div>
-      </div>
-    </div>
+  <!-- between: the marketing lines -->
+  <section class="lines">
+    <p class="big">הקוד נכתב בקצב של בינה מלאכותית.<br>דיווח הבאגים והטיפול בהם חייבים לעמוד <span class="acc">באותו קצב.</span></p>
+    <p class="pain">פרט אחד חסר בדיווח, ושני צוותים עוסקים בהבהרות במקום בתיקון.</p>
   </section>
 
-  <section class="blk">
-    <div class="card problem">
-      <div>
-        <div class="kicker">הבעיה המשותפת</div>
-        <h2>פרט אחד חסר בדיווח, ושני צוותים עוסקים בהבהרות במקום בתיקון</h2>
-        <p>בכל סוג ארגון הפער זהה: שאלות הבהרה, ניסיונות שחזור ועיכוב בשחרור הגרסה.</p>
-      </div>
-      <div class="stat">
-        <div class="num">10</div>
-        <div class="lbl">שניות בחציון, מהדיווח של הבודק ועד כרטיס מוכן לתיקון</div>
-        <div class="src">נמדד על 30 דיווחים אמיתיים, אוקטובר 2026</div>
-      </div>
+  <!-- half 2: the product -->
+  <section class="card prod">
+    <div class="pname en">Lady<span class="bug">Bug</span>Loop</div>
+    <p class="tag1">מתיאור קצר, בקול או בכתב, לכרטיס באג מלא ב־<span class="en">Jira</span> או ב־<span class="en">GitHub</span>.</p>
+    <div class="film" id="film">
+      <video controls preload="metadata" playsinline poster="../poster.jpg">
+        <source src="../film.mp4" type="video/mp4">
+      </video>
     </div>
-  </section>
-
-  <section class="blk">
-    <div class="kicker">איך זה עובד</div>
-    <h2>מתיאור קצר לכרטיס באג מלא</h2>
-    <div class="steps">
-      <div class="card step">
-        <h3>הבודק מתאר, בקול או בכתב</h3>
-        <p>כמה משפטים, איך שנוח לו. הכלי שומר את המסך, את השגיאות הטכניות ואת ההקלטה.</p>
-      </div>
-      <div class="card step">
-        <h3>שאלת המשך כשחסר פרט</h3>
-        <p>סוכן מזהה מה חסר ושואל את הבודק שאלה אחת, עוד לפני שהכרטיס נפתח.</p>
-      </div>
-      <div class="card step">
-        <h3>כרטיס מלא תוך פחות מ־30&nbsp;שניות</h3>
-        <p>ב־<span class="en">Jira</span> או ב־<span class="en">GitHub</span>, עם כל מה שהמפתח צריך כדי לשחזר.</p>
-      </div>
-    </div>
-    <div class="loop"><span class="tag">בהמשך</span><span>לחלק של הטיפול יש את <b class="en">bugloop.studio</b>: הכרטיס עובר לתיקון, והתיקון חוזר לבודק לאישור בקליק.</span></div>
-  </section>
-
-  <section class="ask">
-    <div class="kicker">מה אני מחפשת</div>
-    <h2>צוותי פיתוח ובדיקות ראשונים לפיילוט</h2>
-    <ul>
-      <li>צוותים שמדווחים על באגים כל יום</li>
-      <li>היכרות עם מנהלי <span class="en">QA</span>, פיתוח ו־<span class="en">CTO</span></li>
-      <li>ייעוץ באסטרטגיית שיווק ובבחירת ערוצי הפצה</li>
-    </ul>
+    <ol class="how">
+      <li><span><b>הבודק מתאר</b>, בקול או בכתב. המסך, השגיאות וההקלטה נשמרים לבד.</span></li>
+      <li><span><b>סוכן שואל שאלת המשך</b> כשחסר פרט.</span></li>
+      <li><span><b>כרטיס מוכן לתיקון</b> נפתח, עם כל מה שהמפתח צריך.</span></li>
+    </ol>
+    <div class="kpi"><b>10</b><span>שניות בחציון, מהדיווח ועד כרטיס מוכן. נמדד על 30 דיווחים אמיתיים.</span></div>
+    <p class="studio">ולחלק של הטיפול: <b class="en">bugloop.studio</b> מעביר את הכרטיס לתיקון ומחזיר אותו לבודק לאישור.</p>
     <div class="cta">
       <a class="btn pri" href="mailto:ifatbiran@gmail.com?subject=LadyBugLoop%20demo">קביעת הדגמה קצרה</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/ifat-biran-5b65063/" target="_blank" rel="noopener"><span class="en">LinkedIn</span></a>
+      <a class="btn sec" href="https://ladybugloop.com/" target="_blank" rel="noopener">לאתר המוצר</a>
     </div>
   </section>
 </main>
@@ -266,7 +237,7 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
   <nav>
     <a class="en" href="mailto:ifatbiran@gmail.com">ifatbiran@gmail.com</a>
     <a class="en" href="https://ladybugloop.com/" target="_blank" rel="noopener">ladybugloop.com</a>
-    <a href="../me/">דף ההיכרות המלא</a>
+
   </nav>
 </footer>
 
