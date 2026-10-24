@@ -11,6 +11,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Rubik:wght@500;700;800&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+/* scroll-reveal is opt-in: hidden state exists only when JS + IntersectionObserver + motion are all available */
+(function(){
+  var d=document.documentElement;
+  if(!('IntersectionObserver' in window)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+  d.classList.add('sr-on');
+  setTimeout(function(){if(!window.__srReady)d.classList.remove('sr-on');},3000);
+})();
+</script>
 <style>
 :root{
   --plum:#2a1240; --plum-2:#4a2a63; --muted:#5f4d70;
@@ -19,7 +28,9 @@
   --card:#ffffffd9;
   --radius:22px;
   --shadow:0 18px 40px -18px rgba(42,18,64,.35), 0 2px 6px rgba(42,18,64,.06);
+  --shadow-up:0 28px 50px -20px rgba(42,18,64,.45), 0 4px 10px rgba(42,18,64,.08);
   --ease:cubic-bezier(.34,1.36,.64,1);
+  --ease-out:cubic-bezier(.22,.8,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -29,93 +40,175 @@ body{
   min-height:100vh; overflow-x:hidden;
 }
 .glow{position:fixed;width:60vmax;height:60vmax;border-radius:50%;pointer-events:none;z-index:0;filter:blur(10px)}
-.g1{top:-20vmax;right:-15vmax;background:radial-gradient(circle,rgba(255,150,205,.55),rgba(255,150,205,0) 66%)}
-.g2{bottom:-25vmax;left:-20vmax;background:radial-gradient(circle,rgba(190,150,255,.5),rgba(190,150,255,0) 66%)}
+.g1{top:-20vmax;right:-15vmax;background:radial-gradient(circle,rgba(255,150,205,.55),rgba(255,150,205,0) 66%);animation:drift 18s ease-in-out infinite alternate}
+.g2{bottom:-25vmax;left:-20vmax;background:radial-gradient(circle,rgba(190,150,255,.5),rgba(190,150,255,0) 66%);animation:drift 22s ease-in-out infinite alternate-reverse}
+.g3{top:40vh;left:30vw;width:40vmax;height:40vmax;background:radial-gradient(circle,rgba(255,200,170,.45),rgba(255,200,170,0) 66%)}
+@keyframes drift{to{transform:translate(4vmax,3vmax) scale(1.06)}}
 main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:28px 16px 64px}
 .en{font-family:Montserrat,sans-serif;direction:ltr;unicode-bidi:isolate;font-weight:800;letter-spacing:-.01em}
+.nw{white-space:nowrap}
 h1,h2{font-family:Rubik,sans-serif;line-height:1.15}
-a:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+a:focus-visible,video:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
 
+/* load reveal (hero): CSS only, always ends visible */
 .rv{opacity:0;transform:translateY(18px);animation:up .7s var(--ease) forwards}
 @keyframes up{to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.rv{animation:none;opacity:1;transform:none}}
+@keyframes bob{50%{transform:translateY(-6px) rotate(-3deg)}}
+@keyframes ring{0%{transform:scale(.92);opacity:.55}100%{transform:scale(1.55);opacity:0}}
+
+/* scroll reveal (below the fold): hidden only while html.sr-on, removed from the element after it shows */
+.sr-on .sr{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease-out),transform .8s var(--ease-out);transition-delay:var(--d,0s)}
+.sr-on .sr.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .rv{animation:none;opacity:1;transform:none}
+  .bob,.glow,.ring,.disc-wrap:before{animation:none!important}
+  html{scroll-behavior:auto}
+  *{transition-duration:.01ms!important}
+}
 
 /* hero = her */
-.hero{text-align:center;margin-bottom:28px}
-.kicker{display:inline-flex;gap:7px;align-items:center;background:var(--plum);color:#fff;border-radius:999px;padding:3px 14px;font-weight:700;font-size:16px}
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:34px;position:relative}
+.disc-wrap{position:relative;display:grid;place-items:center}
+.disc-wrap:before{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid var(--pink);opacity:0;animation:ring 3.6s ease-out 1.2s infinite}
+.disc{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;position:relative;
+  background:radial-gradient(circle at 35% 30%,#ff7aa8 0%,var(--pink) 30%,var(--magenta) 62%,var(--violet) 100%);
+  box-shadow:0 18px 38px -12px rgba(201,49,143,.6), inset 0 -6px 16px rgba(42,18,64,.18);
+  transition:box-shadow .35s var(--ease-out)}
+.disc.bob{animation:bob 4.5s ease-in-out 1s infinite}
+.disc svg{width:46px;height:46px;transition:transform .5s var(--ease)}
+.disc-wrap:hover .disc{box-shadow:0 24px 50px -10px rgba(201,49,143,.8), inset 0 -6px 16px rgba(42,18,64,.18)}
+.disc-wrap:hover .disc svg{transform:rotate(-14deg) scale(1.12)}
+.kicker{display:inline-flex;gap:7px;align-items:center;background:var(--plum);color:#fff;border-radius:999px;padding:3px 14px;font-weight:700;font-size:16px;margin-top:16px}
 .kicker i{width:8px;height:8px;border-radius:50%;background:var(--sun);display:inline-block}
-.name{font-weight:800;font-size:clamp(44px,13vw,84px);letter-spacing:-.02em;margin:10px 0 2px}
-.role{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(17px,4.6vw,24px);color:var(--magenta);line-height:1.3}
-.role .he{font-family:Rubik,sans-serif}
-.cta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:10px 22px;border-radius:999px;font-weight:700;font-size:18px;text-decoration:none;transition:transform .25s var(--ease)}
-.btn:hover{transform:translateY(-2px)}
-.btn.main{color:#fff;background:linear-gradient(90deg,var(--pink),var(--magenta));box-shadow:0 12px 26px -12px rgba(201,49,143,.8)}
+.name{font-weight:800;font-size:clamp(46px,14.5vw,92px);line-height:1.05;letter-spacing:-.025em;margin:8px 0 6px;white-space:nowrap}
+.name .lastname{background:linear-gradient(90deg,var(--pink),var(--magenta) 55%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(17px,4.6vw,24px);color:var(--plum-2);line-height:1.3}
+.role .he{font-family:Rubik,sans-serif;color:var(--magenta)}
+.cta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:10px 24px;border-radius:999px;font-weight:700;font-size:18px;text-decoration:none;cursor:pointer;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease-out),background-position .5s var(--ease-out),color .2s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.main{color:#fff;background:linear-gradient(90deg,var(--pink),var(--magenta),var(--violet));background-size:200% 100%;background-position:100% 0;box-shadow:0 12px 26px -12px rgba(201,49,143,.8)}
 .btn.alt{color:var(--plum);background:#fff;box-shadow:var(--shadow)}
+.btn:active{transform:translateY(0) scale(.98)}
 
-.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 24px}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 24px;transition:transform .4s var(--ease),box-shadow .4s var(--ease-out)}
 .lead{font-family:Rubik,sans-serif;font-weight:700;font-size:clamp(20px,3.4vw,24px);line-height:1.4}
-.cos{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.cos b{font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;background:#f3eef7;color:var(--plum-2);border-radius:999px;padding:3px 12px;white-space:nowrap;direction:ltr}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-.stat{background:#fff;border-radius:18px;padding:14px;text-align:center;box-shadow:0 4px 12px -6px rgba(42,18,64,.25)}
-.stat .big{font-family:Montserrat,sans-serif;font-weight:900;font-size:38px;color:var(--magenta);line-height:1.1;direction:ltr;unicode-bidi:isolate}
+.stat{background:#fff;border-radius:18px;padding:14px;text-align:center;box-shadow:0 4px 12px -6px rgba(42,18,64,.25);transition:transform .35s var(--ease),box-shadow .35s var(--ease-out)}
+.stat .big{font-family:Montserrat,sans-serif;font-weight:900;font-size:38px;color:var(--magenta);line-height:1.1;direction:ltr;unicode-bidi:isolate;transition:transform .35s var(--ease)}
 .stat .lab{font-size:16px;color:var(--plum-2);font-weight:600;line-height:1.35}
 
-h2{font-size:clamp(24px,4vw,30px);font-weight:800;margin:40px 0 14px}
+h2{font-size:clamp(24px,4vw,30px);font-weight:800;margin:44px 0 14px;display:flex;align-items:center;gap:12px}
+h2:before{content:"";width:8px;height:1em;border-radius:6px;background:linear-gradient(180deg,var(--pink),var(--violet));flex:none}
 
 .prod-line{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
 .brand{font-size:clamp(28px,7vw,40px);font-weight:900;letter-spacing:-.03em;color:var(--plum)}
 .brand .bug{color:var(--magenta)}
 .tag{font-family:Montserrat,sans-serif;font-weight:600;font-size:18px;color:var(--plum-2);direction:ltr;unicode-bidi:isolate}
-.film{background:var(--plum);border-radius:24px;padding:12px;box-shadow:0 30px 60px -24px rgba(42,18,64,.6);margin-top:14px;scroll-margin-top:16px}
+.film{background:var(--plum);border-radius:24px;padding:12px;box-shadow:0 30px 60px -24px rgba(42,18,64,.6);margin-top:14px;scroll-margin-top:16px;position:relative;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease-out)}
+.film:after{content:"";position:absolute;inset:-3px;border-radius:27px;border:3px solid transparent;pointer-events:none;transition:border-color .35s}
 .film video{width:100%;display:block;border-radius:14px;background:#000;aspect-ratio:16/9}
 .more{margin-top:12px;font-size:17px;color:var(--muted)}
 
-.ask{background:linear-gradient(135deg,var(--plum),#3b1a5a);color:#fff;border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow)}
+.ask{background:linear-gradient(135deg,var(--plum),#3b1a5a);color:#fff;border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin-top:44px;position:relative;overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease-out)}
+.ask:after{content:"";position:absolute;inset:auto -40px -60px auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,79,129,.45),transparent 65%);pointer-events:none}
 .ask h2{color:var(--blush);margin:0 0 10px}
-.ask ul{list-style:none;display:grid;gap:8px}
-.ask li{padding-inline-start:26px;position:relative}
-.ask li:before{content:"";position:absolute;inset-inline-start:0;top:.55em;width:12px;height:12px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 3px rgba(255,79,129,.25)}
+.ask ul{list-style:none;display:grid;gap:8px;position:relative;z-index:1}
+.ask li{padding-inline-start:26px;position:relative;transition:color .25s}
+.ask li:before{content:"";position:absolute;inset-inline-start:0;top:.55em;width:12px;height:12px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 3px rgba(255,79,129,.25);transition:transform .35s var(--ease),box-shadow .35s}
 
-.contact{text-align:center;margin-top:40px}
+.contact{text-align:center;margin-top:44px}
 .contact .links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.contact a{display:inline-flex;align-items:center;min-height:48px;color:var(--plum);font-weight:700;background:#fff;border-radius:999px;padding:10px 22px;box-shadow:var(--shadow);text-decoration:none}
+.contact a{display:inline-flex;align-items:center;min-height:48px;color:var(--plum);font-weight:700;background:#fff;border-radius:999px;padding:10px 24px;box-shadow:var(--shadow);text-decoration:none;cursor:pointer;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease-out),background .25s,color .25s}
+
+/* hover only on devices that have it */
+@media (hover:hover){
+  .btn:hover{transform:translateY(-3px)}
+  .btn.main:hover{background-position:0 0;box-shadow:0 18px 32px -10px rgba(201,49,143,.95)}
+  .btn.alt:hover{box-shadow:var(--shadow-up);color:var(--magenta)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-up)}
+  .stat:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 14px 24px -10px rgba(201,49,143,.4)}
+  .stat:hover .big{transform:scale(1.08)}
+  .film:hover{transform:translateY(-4px);box-shadow:0 40px 70px -24px rgba(201,49,143,.55)}
+  .film:hover:after{border-color:var(--pink)}
+  .ask:hover{transform:translateY(-4px);box-shadow:var(--shadow-up)}
+  .ask li:hover:before{transform:scale(1.3);box-shadow:0 0 0 6px rgba(255,79,129,.28)}
+  .ask li:hover{color:var(--blush)}
+  .contact a:hover{transform:translateY(-3px);box-shadow:var(--shadow-up);background:var(--plum);color:#fff}
+}
 
 @media (max-width:600px){
+  main{padding-top:22px}
+  .role{display:flex;flex-direction:column;align-items:center;gap:2px}
+  .role .dot{display:none}
   .stats{grid-template-columns:1fr;gap:8px}
   .stat{display:flex;align-items:center;gap:14px;text-align:start;padding:10px 14px}
   .stat .big{min-width:84px;text-align:center;font-size:34px}
   .card,.ask{padding:18px}
 }
+@media (max-height:700px) and (max-width:600px){
+  main{padding-top:14px}
+  .hero{margin-bottom:26px}
+  .disc{width:76px;height:76px}.disc svg{width:38px;height:38px}
+  .kicker{margin-top:12px}
+  .cta{margin-top:16px;gap:8px}
+}
+@media (min-width:761px){
+  main{padding-top:40px}
+  .disc{width:112px;height:112px}.disc svg{width:56px;height:56px}
+  .hero{margin-bottom:44px}
+  .cta{margin-top:28px}
+}
 </style>
 </head>
 <body>
-<div class="glow g1"></div><div class="glow g2"></div>
+<div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
 <main>
 
 <header class="hero">
-  <span class="kicker rv" style="animation-delay:.05s"><i></i>נעים להכיר</span>
-  <h1 class="name rv" style="animation-delay:.12s">יפעת בירן</h1>
-  <p class="role rv" style="animation-delay:.18s"><span class="en" style="font-weight:700;white-space:nowrap">Senior Program Manager</span> · <span class="he" style="white-space:nowrap">יזמת טכנולוגית</span></p>
-  <div class="cta rv" style="animation-delay:.3s">
+  <div class="rv" style="animation-delay:.05s">
+    <div class="disc-wrap">
+      <div class="disc bob" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+          <ellipse cx="12" cy="13" rx="7.5" ry="8" fill="#ffffff"/>
+          <path d="M12 5.5c-1.6 0-3 .7-4 1.8.9 1.1 2.4 1.7 4 1.7s3.1-.6 4-1.7c-1-1.1-2.4-1.8-4-1.8z" fill="#2a1240"/>
+          <path d="M12 5v16" stroke="#2a1240" stroke-width="1.2"/>
+          <circle cx="8.6" cy="12" r="1.15" fill="#2a1240"/>
+          <circle cx="15.4" cy="12" r="1.15" fill="#2a1240"/>
+          <circle cx="8.2" cy="16" r="1.05" fill="#2a1240"/>
+          <circle cx="15.8" cy="16" r="1.05" fill="#2a1240"/>
+          <circle cx="10" cy="3.6" r="1.3" fill="#2a1240"/>
+          <circle cx="14" cy="3.6" r="1.3" fill="#2a1240"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <span class="kicker rv" style="animation-delay:.12s"><i></i>נעים להכיר</span>
+  <h1 class="name rv" style="animation-delay:.18s">יפעת <span class="lastname">בירן</span></h1>
+  <p class="role rv" style="animation-delay:.26s"><span class="en nw" style="font-weight:700">Senior Program Manager</span><span class="dot"> · </span><span class="he nw">יזמת טכנולוגית</span></p>
+  <div class="cta rv" style="animation-delay:.36s">
     <a class="btn main" href="https://www.linkedin.com/in/ifat-biran-5b65063/" target="_blank" rel="noopener">הלינקדאין שלי</a>
     <a class="btn alt" href="mailto:ifatbiran@gmail.com">לכתוב לי</a>
-    <a class="btn alt" href="#film">לצפות בסרט</a>
+    <a class="btn alt" href="#film"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>לצפות בסרט</a>
   </div>
 </header>
 
-<section class="card rv" style="animation-delay:.36s">
+<section class="card sr">
   <p class="lead">יותר מ־20 שנה בתוכנה, סייבר, <span class="en" style="font-weight:800">QA</span> והובלת תוכניות טכנולוגיות, בין השאר ב־<span class="en" style="font-weight:800">IBM</span>, לצד רקע יצירתי באנימציה ובעריכת וידאו. היום אני משלבת את שני העולמות בבניית מוצרי <span class="en" style="font-weight:800">AI</span>.</p>
   <div class="stats">
-    <div class="stat"><div class="big">20+</div><div class="lab">שנים בתוכנה, סייבר ואיכות</div></div>
-    <div class="stat"><div class="big">3</div><div class="lab">מוצרים שבניתי מקצה לקצה</div></div>
-    <div class="stat"><div class="big en" style="font-size:24px;line-height:1.15">B.Sc<br>MBA</div><div class="lab">מדעי המחשב ומתמטיקה, מערכות מידע</div></div>
+    <div class="stat sr" style="--d:.08s"><div class="big">20+</div><div class="lab">שנים בתוכנה, סייבר ואיכות</div></div>
+    <div class="stat sr" style="--d:.16s"><div class="big">3</div><div class="lab">מוצרים שבניתי מקצה לקצה</div></div>
+    <div class="stat sr" style="--d:.24s"><div class="big en" style="font-size:24px;line-height:1.15">B.Sc<br>MBA</div><div class="lab">מדעי המחשב ומתמטיקה, מערכות מידע</div></div>
   </div>
 </section>
 
-<h2 class="rv" style="animation-delay:.42s">מה אני בונה</h2>
-<section class="card rv" style="animation-delay:.46s">
+<h2 class="sr">מה אני בונה</h2>
+<section class="card sr">
   <div class="prod-line"><span class="brand en">Lady<span class="bug">Bug</span>Loop</span><span class="tag">Speak the bug. Get the issue.</span></div>
   <p>מדווחים על תקלה בקול, עם הקלטת מסך ופרטים טכניים, ומקבלים כרטיס באג מסודר ב־<span class="en" style="font-weight:700">Jira</span> או ב־<span class="en" style="font-weight:700">GitHub</span>.</p>
   <div class="film" id="film">
@@ -123,20 +216,20 @@ h2{font-size:clamp(24px,4vw,30px);font-weight:800;margin:40px 0 14px}
       <source src="../film.mp4" type="video/mp4">
     </video>
   </div>
-  <p class="more">בהמשך: <span class="en" style="font-weight:700">bugloop.studio</span> (מכרטיס לתיקון קוד) ו־<span class="en" style="font-weight:700">LoopMail</span> (קוד פתוח). <a href="../" style="color:var(--magenta);font-weight:700">לפרטים המלאים</a></p>
+  <p class="more">בהמשך: <span class="en" style="font-weight:700">bugloop.studio</span> (מכרטיס לתיקון קוד) ו־<span class="en" style="font-weight:700">LoopMail</span> (קוד פתוח).</p>
 </section>
 
-<section class="ask rv" style="animation-delay:.52s;margin-top:28px">
+<section class="ask sr">
   <h2>מה אני מחפשת</h2>
   <ul>
-    <li>צוותי פיתוח ובדיקות ראשונים לפיילוט</li>
-    <li>היכרות עם מנהלי <span class="en" style="font-weight:700">QA</span>, פיתוח ו־<span class="en" style="font-weight:700">CTO</span></li>
-    <li>ייעוץ בשיווק ובכניסה לשוק, <span class="en" style="font-weight:700;white-space:nowrap">Go-To-Market</span></li>
-    <li>שיחה קצרה עם הדגמה חיה</li>
+    <li class="sr" style="--d:.1s">צוותי פיתוח ובדיקות ראשונים לפיילוט</li>
+    <li class="sr" style="--d:.2s">היכרות עם מנהלי <span class="en" style="font-weight:700">QA</span>, פיתוח ו־<span class="en" style="font-weight:700">CTO</span></li>
+    <li class="sr" style="--d:.3s">ייעוץ בשיווק ובכניסה לשוק, <span class="en nw" style="font-weight:700">Go-To-Market</span></li>
+    <li class="sr" style="--d:.4s">שיחה קצרה עם הדגמה חיה</li>
   </ul>
 </section>
 
-<footer class="contact">
+<footer class="contact sr">
   <div class="links">
     <a href="mailto:ifatbiran@gmail.com"><span class="en" style="font-weight:700">ifatbiran@gmail.com</span></a>
     <a href="https://www.linkedin.com/in/ifat-biran-5b65063/" target="_blank" rel="noopener"><span class="en" style="font-weight:700">LinkedIn</span></a>
@@ -144,5 +237,25 @@ h2{font-size:clamp(24px,4vw,30px);font-weight:800;margin:40px 0 14px}
   </div>
 </footer>
 </main>
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.sr'));
+  if(!document.documentElement.classList.contains('sr-on')||!('IntersectionObserver' in window)){return;}
+  window.__srReady=1;
+  function show(el){
+    el.classList.add('in');
+    /* after the transition ends, drop the reveal classes so hover transforms are not shadowed */
+    setTimeout(function(){el.classList.remove('sr','in');},1500);
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting||e.boundingClientRect.top<0){io.unobserve(e.target);show(e.target);}
+    });
+  },{rootMargin:'0px 0px -6% 0px',threshold:0.05});
+  els.forEach(function(el){io.observe(el);});
+  /* failsafe: nothing may stay hidden, even if it never intersects */
+  setTimeout(function(){els.forEach(function(el){if(el.classList.contains('sr')&&!el.classList.contains('in')){io.unobserve(el);show(el);}});},6000);
+})();
+</script>
 </body>
 </html>
