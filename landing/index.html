@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>LadyBugLoop | יפעת בירן</title>
-<meta name="description" content="הקוד נכתב בקצב של בינה מלאכותית. הבדיקה, בקצב של דיבור. LadyBugLoop הופך תיאור של תקלה, בקול או בכתב, לכרטיס באג מלא ב־Jira או ב־GitHub, תוך פחות מ־30 שניות.">
+<meta name="description" content="הקוד נכתב בקצב של בינה מלאכותית. דיווח הבאגים חייב לעמוד באותו קצב. LadyBugLoop הופך תיאור של תקלה, בקול או בכתב, לכרטיס באג מלא ב־Jira או ב־GitHub, תוך פחות מ־30 שניות.">
 <meta property="og:title" content="LadyBugLoop | יפעת בירן">
 <meta property="og:description" content="מתיאור של תקלה, בקול או בכתב, לכרטיס באג מלא, תוך פחות מ־30 שניות.">
 <meta property="og:url" content="https://ifatbiran.github.io/ladybugloop-intro/landing/">
-<meta property="og:image" content="https://ifatbiran.github.io/ladybugloop-intro/assets/og.png">
+<meta property="og:image" content="https://ifatbiran.github.io/ladybugloop-intro/poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,6 +77,11 @@ section{padding:28px 0}
 .kicker{font-size:14px;font-weight:800;letter-spacing:.08em;color:var(--accent);margin-bottom:8px}
 h2{font-weight:800;font-size:clamp(24px,4.2vw,34px);line-height:1.2;letter-spacing:-.01em}
 .card{background:var(--card);border-radius:var(--radius-lg);padding:28px 22px}
+
+/* film */
+.film{background:var(--card);border-radius:var(--radius-lg);padding:10px;scroll-margin-top:16px}
+.film video{display:block;width:100%;aspect-ratio:16/9;border-radius:var(--radius);background:#000}
+.film-cap{font-size:15px;color:var(--ink-2);padding:10px 8px 4px}
 
 /* problem */
 .problem{display:grid;gap:16px}
@@ -165,12 +170,24 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
   </section>
 
   <section class="hero">
-    <h1 class="rv" style="animation-delay:.08s">הקוד נכתב בקצב של בינה מלאכותית.<br>הבדיקה, <span class="acc">בקצב של דיבור.</span></h1>
+    <h1 class="rv" style="animation-delay:.08s">הקוד נכתב בקצב של בינה מלאכותית.<br>דיווח הבאגים חייב לעמוד <span class="acc">באותו קצב.</span></h1>
     <p class="lead rv" style="animation-delay:.16s">דיווחי באגים חסרים ולא מדויקים הם מהגורמים המרכזיים לבזבוז זמן פיתוח ובדיקות בארגונים. במשך יותר מעשור הובלתי צוותי <span class="en">QA</span> והכרתי את האתגר הזה ממקור ראשון. כיום אני מובילה פיתוח של פתרון מבוסס <span class="en">AI</span> שהופך דיווח של בודק לכרטיס מוכן לתיקון, תוך פחות מ־30 שניות.</p>
     <div class="cta rv" style="animation-delay:.24s">
       <a class="btn pri" href="mailto:ifatbiran@gmail.com?subject=LadyBugLoop%20demo">קביעת הדגמה קצרה</a>
-      <a class="btn sec" href="https://ladybugloop.com/" target="_blank" rel="noopener">לאתר המוצר</a>
+      <a class="btn sec" href="#film">לצפייה בסרטון</a>
+      <a class="btn neu" href="https://ladybugloop.com/" target="_blank" rel="noopener">לאתר המוצר</a>
       <a class="btn neu" href="https://www.linkedin.com/in/ifat-biran-5b65063/" target="_blank" rel="noopener"><span class="en">LinkedIn</span></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">סרטון קצר</div>
+    <h2>איך זה נראה</h2>
+    <div class="film" id="film" style="margin-top:16px">
+      <video controls preload="metadata" playsinline poster="../poster.jpg">
+        <source src="../film.mp4" type="video/mp4">
+      </video>
+      <div class="film-cap">מתיאור חופשי, בקול או בכתב, לכרטיס מפורט ב־<span class="en">Jira</span> או ב־<span class="en">GitHub</span>.</div>
     </div>
   </section>
 
@@ -182,9 +199,9 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
         <p>בארגוני אנטרפרייז, בחברות סייבר, במוצרי מדף ובחברות צומחות, הפער זהה: שאלות הבהרה, ניסיונות שחזור ועיכוב בשחרור הגרסה.</p>
       </div>
       <div class="stat">
-        <div class="num">35%</div>
-        <div>מצוותי התוכנה מדווחים שרוב הבאגים בסביבת הייצור מתגלים על ידי לקוחות</div>
-        <div class="src">סקר <span class="en">mabl</span>, 2026</div>
+        <div class="num">10</div>
+        <div>שניות בחציון, מהדיווח של הבודק ועד כרטיס מוכן לתיקון</div>
+        <div class="src">נמדד על 30 דיווחים אמיתיים, אוקטובר 2026</div>
       </div>
     </div>
   </section>
