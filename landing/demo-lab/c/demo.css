@@ -1,0 +1,80 @@
+/* Option C: cinematic scene. clip-path / transform / opacity only for motion. */
+.cn{--pk:#f0569b;--cink:#f3eef7;--cink2:#c9c0d4;
+  position:fixed;inset:0;z-index:80;display:flex;flex-direction:column;padding:12px 20px 22px;background:#1c1622;color:var(--cink);
+  clip-path:polygon(calc(100% - 76px) calc(100% - 76px),calc(100% - 16px) calc(100% - 76px),calc(100% - 16px) calc(100% - 16px),calc(100% - 76px) calc(100% - 16px));transition:clip-path .7s var(--ease);overflow:hidden}
+.cn[hidden]{display:none}
+.cn.open{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.cn.open.low{clip-path:polygon(0 56%,100% 56%,100% 100%,0 100%)}
+.cn-top{display:flex;align-items:center;gap:12px;flex:none;min-height:44px}
+.cn-seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;list-style:none;flex:1}
+.cn-seg li{position:relative;height:4px;border-radius:2px;background:rgba(243,238,247,.2);overflow:hidden}
+.cn-seg li::after{content:"";position:absolute;inset:0;background:var(--pk);transform:scaleX(0);transform-origin:right;transition:transform .6s var(--ease)}
+.cn-seg li.now::after,.cn-seg li.done::after{transform:scaleX(1)}
+.cn-x{width:44px;height:44px;border:0;border-radius:50%;background:rgba(243,238,247,.12);color:var(--cink);font-size:24px;line-height:1;cursor:pointer;flex:none;transition:transform .2s var(--ease)}
+.cn-x:hover{transform:rotate(90deg)}
+.cn-no{position:absolute;top:70px;inset-inline-end:20px;font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(90px,30vw,150px);line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--pk);opacity:.5;direction:ltr;pointer-events:none}
+.cn.low .cn-no{display:none}
+.cn-main{margin-top:14px;position:relative;order:2}
+.cn-big{min-height:1.15em;white-space:nowrap;font-weight:900;font-size:clamp(54px,20vw,104px);line-height:.98;letter-spacing:-.03em;color:var(--cink)}
+.cn-sub{margin-top:10px;font-size:19px;font-weight:600;color:var(--cink2);min-height:30px}
+.cn.beat .cn-big{animation:cnWipe .75s var(--ease) both}
+.cn.beat .cn-sub{animation:cnUp .6s var(--ease) .25s both}
+@keyframes cnWipe{from{clip-path:inset(0 0 100% 0);transform:translateY(34%)}to{clip-path:inset(0);transform:none}}
+@keyframes cnUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.cn-prop{flex:none;min-height:150px;margin-top:auto;display:flex;align-items:center;order:1;transition:opacity .3s}
+.cn.low .cn-prop{opacity:0}
+.cn-top{order:0}.cn-ctl{order:3}
+.cn-bug{position:absolute;top:27%;inset-inline-start:50%;margin-inline-start:-50px;width:100px;height:100px;border-radius:50%;background:var(--grad);display:grid;place-items:center;pointer-events:none}
+.cn-bug svg{width:66px;height:66px}
+.cn.beat .cn-bug{animation:cnBug .8s var(--ease) both}
+.cn.work .cn-bug svg{animation:cnRock 1.1s ease-in-out infinite}
+@keyframes cnBug{from{opacity:0;transform:scale(.4) rotate(-40deg)}to{opacity:1;transform:none}}
+@keyframes cnRock{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(12deg)}}
+.cn-ctl{flex:none;display:flex;flex-wrap:wrap;gap:8px;min-height:52px;margin-top:14px;align-items:center}
+.cn-ctl .btn{min-height:48px;border:0;cursor:pointer;font-family:inherit}
+.cn-ctl .btn[disabled]{opacity:.4;cursor:default}
+.cn .btn.neu{background:transparent;color:var(--cink);box-shadow:inset 0 0 0 1.5px var(--cink2)}
+.cn .btn.pri{background:#d6338f;color:#fff}
+.cn-n{color:var(--pk);font-weight:900;direction:ltr;unicode-bidi:isolate;display:inline-block;min-width:2.4ch;text-align:right}
+.cn-chip{display:inline-block;font-size:14px;font-weight:800;color:#1c1622;background:var(--pk);padding:1px 12px;border-radius:999px}
+.cn .lb-caret{background:var(--pk)}
+
+.cn-sw{display:flex;gap:12px;width:100%;justify-content:flex-start}
+.cn-sw button{width:60px;height:60px;border:0;border-radius:50%;background:transparent;display:grid;place-items:center;padding:0;cursor:pointer;transition:transform .25s var(--ease)}
+.cn-sw button i{width:46px;height:46px;border-radius:50%;display:block;box-shadow:0 0 0 3px #1c1622,0 0 0 5px transparent;transition:box-shadow .25s}
+.cn-sw button[aria-pressed="true"] i{box-shadow:0 0 0 3px #1c1622,0 0 0 5px var(--cink)}
+.cn-sw button[aria-pressed="true"]{transform:scale(1.1)}
+@media (hover:hover){.cn-sw button:hover{transform:scale(1.1)}}
+
+/* the ticket wipes in from the right */
+.cn-tk{width:100%;display:grid;grid-template-columns:1.15fr 1fr;grid-template-areas:"shot head" "shot rows";gap:8px 14px;align-content:center;background:var(--card);color:var(--ink);border-radius:16px;padding:12px;
+  clip-path:inset(0 0 0 100%)}
+.cn-tk.in{clip-path:inset(0);transition:clip-path .8s var(--ease)}
+.cn-tk .ms{grid-area:shot;aspect-ratio:16/10;align-self:center}
+.cn-tkh{grid-area:head;display:grid;gap:2px;align-content:start}
+.cn-tkh b{font-size:13px;color:var(--accent);direction:ltr;text-align:right}
+.cn-tkh span{font-weight:800;font-size:15px;line-height:1.25}
+.cn-rows{grid-area:rows;display:grid;gap:6px;align-content:end}
+.cn-rows i{position:relative;display:block;height:8px;border-radius:4px;background:var(--hair);overflow:hidden}
+.cn-rows i::after{content:"";position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease)}
+.cn-rows i.ok::after{transform:none}
+.cn-rows i:nth-child(2){width:80%}.cn-rows i:nth-child(3){width:60%}
+.cn-tk.in:not(.pr) .cn-rows i::after{transform:scaleX(.35);transition-delay:.7s}
+
+/* page motion specific to C: the big lines wipe in line by line */
+.lines .big.wipe .wl{display:block;overflow:hidden}
+.lines .big.wipe .wl>span{display:block}
+.js .lines .big.wipe.sr{opacity:1;transform:none}
+.js .lines .big.wipe .wl>span{transform:translateY(105%);transition:transform .8s var(--ease)}
+.js .lines .big.wipe.in .wl>span{transform:none}
+.js .lines .big.wipe.in .wl:nth-child(2)>span{transition-delay:.18s}
+
+@media (max-height:640px){.cn-bug{display:none}.cn-big{font-size:clamp(46px,16vw,70px)}.cn-prop{min-height:116px;margin-top:8px}.cn-sub{margin-top:6px;font-size:17px}.cn-sw button{width:54px;height:54px}.cn-sw button i{width:40px;height:40px}.cn-ctl{margin-top:8px}.cn-no{font-size:84px;top:56px}.cn-bug{top:25%;width:80px;height:80px;margin-inline-start:-40px}.cn-bug svg{width:52px;height:52px}}
+@media (max-width:380px){.cn-sub{min-height:62px}}
+@media (min-width:760px){.cn{left:auto;width:460px}}
+@media (prefers-reduced-motion:reduce){
+  .cn,.cn-x,.cn-seg li::after,.cn-sw button,.cn-sw button i,.cn-rows i::after,.js .lines .big.wipe .wl>span{transition:none!important}
+  .cn.beat .cn-big,.cn.beat .cn-sub,.cn.beat .cn-bug,.cn.work .cn-bug svg{animation:none!important}
+  .cn-tk{clip-path:inset(0)}
+  .js .lines .big.wipe .wl>span{transform:none}
+}
