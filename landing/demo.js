@@ -6,10 +6,10 @@
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var COLORS = [
-    { he: 'סגול', en: 'Purple', c: '#6b3fd4' },
+    { he: 'סגול', en: 'Purple', c: '#7b52e0' },
     { he: 'טורקיז', en: 'Teal', c: '#0f7c80' },
-    { he: 'כתום', en: 'Orange', c: '#d9480f' },
-    { he: 'ירוק', en: 'Green', c: '#2b8a3e' }
+    { he: 'כתום', en: 'Orange', c: '#c4440e' },
+    { he: 'ירוק', en: 'Green', c: '#2a7f3a' }
   ];
   var T = he ? {
     fab: 'הדגמה חיה: בקשו מהחיפושית לשנות משהו בדף', hint: 'נסו אותי: בקשו שינוי בדף הזה',
@@ -40,7 +40,9 @@
     fin: 'Loop closed: from the request to the approval, without a single form.', finp: 'The change stays only on your screen until you reload.',
     demo: 'Book a short demo'
   };
-  var BUG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="13" rx="7.5" ry="8" fill="#ffffff"/><path d="M12 5.5c-1.6 0-3 .7-4 1.8.9 1.1 2.4 1.7 4 1.7s3.1-.6 4-1.7c-1-1.1-2.4-1.8-4-1.8z" fill="#2a1240"/><path d="M12 5v16" stroke="#2a1240" stroke-width="1.2"/><circle cx="8.6" cy="12" r="1.15" fill="#2a1240"/><circle cx="15.4" cy="12" r="1.15" fill="#2a1240"/><circle cx="8.2" cy="16" r="1.05" fill="#2a1240"/><circle cx="15.8" cy="16" r="1.05" fill="#2a1240"/><circle cx="10" cy="3.6" r="1.3" fill="#2a1240"/><circle cx="14" cy="3.6" r="1.3" fill="#2a1240"/></svg>';
+  var MARK = (document.currentScript && document.currentScript.src || '').replace(/demo\.js.*$/, 'mark.png');
+  /* the mark as a picture (same artwork as the inline SVG): forced-dark in phone browsers re-tints SVG fills and the black spots vanish */
+  var BUG = '<img src="' + MARK + '" width="26" height="26" alt="">';
   var MAIL = 'mailto:ifatbiran@gmail.com?subject=LadyBugLoop%20demo';
 
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }

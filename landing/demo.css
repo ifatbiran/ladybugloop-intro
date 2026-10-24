@@ -3,7 +3,7 @@
 .dm-fab{position:fixed;right:16px;bottom:16px;z-index:50;width:60px;height:60px;border:0;border-radius:50%;padding:0;cursor:pointer;
   background:linear-gradient(135deg,#ff5470 0%,#b829e3 100%);display:grid;place-items:center;
   box-shadow:0 10px 24px -10px rgba(0,0,0,.45);transition:transform .25s var(--ease)}
-.dm-fab svg{width:36px;height:36px}
+.dm-fab img{width:36px;height:36px;display:block}
 .dm-fab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media (hover:hover){.dm-fab:hover{transform:scale(1.06)}}
 .dm-fab.dm-hide{transform:scale(0);pointer-events:none}
@@ -21,7 +21,7 @@
 @media (min-width:760px){.dm-sheet{left:auto;right:92px;bottom:20px;width:400px}}
 .dm-head{display:flex;align-items:center;gap:10px}
 .dm-head .disc{width:30px;height:30px}
-.dm-head .disc svg{width:20px;height:20px}
+.dm-head .disc img{width:20px;height:20px}
 .dm-ttl{font-weight:800;font-size:16px;flex:1}
 .dm-tag{font-size:12px;font-weight:700;background:var(--xbg);color:var(--ink-2);padding:2px 8px;border-radius:999px}
 .dm-x{width:36px;height:36px;border:0;border-radius:50%;background:var(--xbg);color:var(--ink);font-size:20px;line-height:1;cursor:pointer}
