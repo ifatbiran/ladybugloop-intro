@@ -113,6 +113,10 @@ h2:before{content:"";width:8px;height:1em;border-radius:6px;background:linear-gr
 .film video{width:100%;display:block;border-radius:14px;background:#000;aspect-ratio:16/9}
 .more{margin-top:12px;font-size:17px;color:var(--muted)}
 
+.facts{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px;font-size:18px;font-weight:600;line-height:1.45}
+.facts li{padding-inline-start:24px;position:relative}
+.facts li:before{content:"";position:absolute;inset-inline-start:0;top:.55em;width:11px;height:11px;border-radius:50%;background:var(--pink)}
+.facts .en{font-weight:700}
 .ask{background:linear-gradient(135deg,var(--plum),#3b1a5a);color:#fff;border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin-top:44px;position:relative;overflow:hidden;
   transition:transform .4s var(--ease),box-shadow .4s var(--ease-out)}
 .ask:after{content:"";position:absolute;inset:auto -40px -60px auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,79,129,.45),transparent 65%);pointer-events:none}
@@ -198,7 +202,13 @@ h2:before{content:"";width:8px;height:1em;border-radius:6px;background:linear-gr
 </header>
 
 <section class="card sr">
-  <p class="lead">יזמת, מפתחת <span class="en" style="font-weight:800">Full-Stack</span> ומובילה טכנולוגית עם יותר מ־26 שנות ניסיון בחברות גלובליות (<span class="en" style="font-weight:800">IBM</span>, <span class="en" style="font-weight:800">Amdocs</span>, <span class="en nw" style="font-weight:800">Mercury Interactive</span>). משלבת ידע הנדסי (<span class="en" style="font-weight:800">B.Sc</span> במדעי המחשב), ראייה עסקית (<span class="en" style="font-weight:800">MBA</span>) ויצירתיות מעולמות הווידאו והאנימציה.<br>שנים הובלתי צוותי <span class="en" style="font-weight:800">QA</span>, ואת הבעיה ש־<span class="en" style="font-weight:800">LadyBugLoop</span> פותר חייתי בעצמי.<br>היום אני מייסדת את <span class="en" style="font-weight:800">LadyBugLoop</span> ואת <span class="en" style="font-weight:800">bugloop.studio</span>: כלי <span class="en" style="font-weight:800">AI</span> שהופכים דיווח על באג לכרטיס מוכן, ואת הכרטיס לתיקון.</p>
+  <p class="lead">יזמת, מפתחת <span class="en">Full-Stack</span> ומובילה טכנולוגית.</p>
+  <ul class="facts">
+    <li>ניסיון בחברות גלובליות: <span class="en">IBM</span>, <span class="en">Amdocs</span>, <span class="en nw">Mercury Interactive</span></li>
+    <li>שנים הובלתי צוותי <span class="en">QA</span>. את הבעיה ש־<span class="en">LadyBugLoop</span> פותר חייתי בעצמי</li>
+    <li>רקע באנימציה ובעריכת וידאו</li>
+    <li>היום מייסדת את <span class="en">LadyBugLoop</span> ואת <span class="en">bugloop.studio</span></li>
+  </ul>
   <div class="stats">
     <div class="stat sr" style="--d:.08s"><div class="big">26+</div><div class="lab">שנים בתוכנה, סייבר ואיכות</div></div>
     <div class="stat sr" style="--d:.16s"><div class="big">3</div><div class="lab">מוצרים שבניתי מקצה לקצה</div></div>
