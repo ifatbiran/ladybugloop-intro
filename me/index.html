@@ -125,6 +125,7 @@ h2:before{content:"";width:8px;height:1em;border-radius:6px;background:linear-gr
 .facts li{padding-inline-start:24px;position:relative}
 .facts li:before{content:"";position:absolute;inset-inline-start:0;top:.55em;width:11px;height:11px;border-radius:50%;background:var(--pink)}
 .facts .en{font-weight:700}
+.facts b{font-weight:800;color:var(--plum)}
 .ask{background:linear-gradient(135deg,var(--plum),#3b1a5a);color:#fff;border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin-top:44px;position:relative;overflow:hidden;
   transition:transform .4s var(--ease),box-shadow .4s var(--ease-out)}
 .ask:after{content:"";position:absolute;inset:auto -40px -60px auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,79,129,.45),transparent 65%);pointer-events:none}
@@ -210,12 +211,16 @@ h2:before{content:"";width:8px;height:1em;border-radius:6px;background:linear-gr
 </header>
 
 <section class="card sr">
-  <p class="lead">דיווחי באגים חסרים ולא מדויקים הם מהגורמים המרכזיים לבזבוז זמן פיתוח ובדיקות בארגונים. במשך יותר מעשור הובלתי צוותי <span class="en" style="font-weight:700">QA</span> והכרתי את האתגר הזה ממקור ראשון. כיום אני מובילה פיתוח של פתרון מבוסס <span class="en" style="font-weight:700">AI</span> שהופך דיווח של בודק לכרטיס מוכן לתיקון, תוך פחות מ־30 שניות.</p>
   <ul class="facts">
-    <li>בשנים האחרונות, כמנהלת תוכניות, ליוויתי וניהלתי את כל מחזור חיי הפיתוח של המוצר (<span class="en">SDLC</span>), וראיתי בדיוק איפה הדברים נופלים</li>
-    <li>ניסיון בארגוני אנטרפרייז ובחברות צומחות, בתחומי הסייבר ומוצרי המדף</li>
-    <li>רקע באנימציה ובעריכת וידאו</li>
-    <li>מייסדת <span class="en nw">LadyBugLoop</span> ו־<span class="en nw">bugloop.studio</span>: מעגל סגור מדיווח הבודק, דרך התיקון, ועד אישורו בלחיצה</li>
+    <li><b>דיווחי באגים חסרים</b> הם גורם מרכזי לבזבוז זמן פיתוח ובדיקות</li>
+    <li><b>יותר מעשור</b> הובלתי צוותי <span class="en" style="font-weight:700">QA</span>, והכרתי את האתגר ממקור ראשון</li>
+    <li><b>כיום</b> אני מובילה פתרון מבוסס <span class="en" style="font-weight:700">AI</span>: דיווח של בודק הופך לכרטיס מוכן לתיקון, תוך פחות מ־30 שניות</li>
+  </ul>
+  <ul class="facts">
+    <li><b>כמנהלת תוכניות</b> ליוויתי את כל מחזור חיי הפיתוח (<span class="en">SDLC</span>), וראיתי איפה הדברים נופלים</li>
+    <li><b>ניסיון</b> בארגוני אנטרפרייז ובחברות צומחות, בסייבר ובמוצרי מדף</li>
+    <li><b>רקע</b> באנימציה ובעריכת וידאו</li>
+    <li><b>מייסדת</b> <span class="en nw">LadyBugLoop</span> ו־<span class="en nw">bugloop.studio</span>: מעגל סגור מהדיווח ועד אישור בלחיצה</li>
   </ul>
   <div class="stats">
     <div class="stat sr" style="--d:.08s"><div class="big">26+</div><div class="lab">שנים בתוכנה, סייבר ואיכות</div></div>
@@ -228,7 +233,13 @@ h2:before{content:"";width:8px;height:1em;border-radius:6px;background:linear-gr
 <section class="card sr">
   <div class="prod-line"><span class="brand en">Lady<span class="bug">Bug</span>Loop</span><span class="tag">Speak the bug. Get the issue.</span></div>
   <p class="why">הקוד נכתב היום בקצב של בינה מלאכותית. דיווח הבאגים והטיפול בהם חייבים לעמוד באותו קצב.</p>
-  <p>מדווחים על תקלה בקול או בכתב, עם הקלטת מסך אוטומטית של הדקה האחרונה, הקלטת שחזור לבחירה ופרטים טכניים, ומקבלים כרטיס באג מסודר ב־<span class="en" style="font-weight:700">Jira</span> או ב־<span class="en" style="font-weight:700">GitHub</span>.</p>
+  <ul class="facts">
+    <li><b>דיווח</b> על תקלה בקול או בכתב</li>
+    <li><b>הקלטת מסך</b> אוטומטית של הדקה האחרונה</li>
+    <li><b>הקלטת שחזור</b> של הצעדים, לבחירת הבודק</li>
+    <li><b>פרטים טכניים</b> נשמרים בכרטיס</li>
+    <li><b>כרטיס באג מסודר</b> ב־<span class="en" style="font-weight:700">Jira</span> או ב־<span class="en" style="font-weight:700">GitHub</span></li>
+  </ul>
   <div class="film" id="film">
     <video controls preload="metadata" playsinline poster="../poster-start.jpg">
       <source src="../film.mp4" type="video/mp4">
