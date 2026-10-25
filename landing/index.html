@@ -182,9 +182,12 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
 .prod .tag1{color:var(--ink-2);margin-top:6px;font-size:clamp(17px,2.2vw,19px)}
 .prod .film{background:var(--paper);margin-top:18px}
 .how{list-style:none;display:grid;gap:10px;margin-top:20px;counter-reset:h}
-.how li{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--ink-2)}
-.how li::before{counter-increment:h;content:counter(h);flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:900;font-size:15px;display:grid;place-items:center;margin-top:calc((1.65em - 28px) / 2)}
+.how>li{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--ink-2)}
+.how>li::before{counter-increment:h;content:counter(h);flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:900;font-size:15px;display:grid;place-items:center;margin-top:calc((1.65em - 28px) / 2)}
 .how b{color:var(--ink)}
+.how ul{list-style:none;display:grid;gap:4px;margin-top:6px;padding:0}
+.how ul li{position:relative;padding-inline-start:16px;line-height:1.5}
+.how ul li::before{content:"";position:absolute;inset-inline-start:0;top:.65em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .kpi{display:flex;align-items:center;gap:10px;margin-top:20px;padding:14px 16px;border-radius:var(--radius);background:var(--accent-soft)}
 .kpi b{font-weight:900;font-size:40px;line-height:1;color:var(--accent);direction:ltr;unicode-bidi:isolate}
 .kpi span{font-size:15px;color:var(--ink)}
@@ -257,7 +260,11 @@ footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:ce
       </video>
     </div>
     <ol class="how">
-      <li><span><b>הבודק מתאר</b>, בקול או בכתב. המסך, השגיאות והקלטה של 60 השניות האחרונות נשמרים לבד, ואפשר להוסיף הקלטת שחזור.</span></li>
+      <li><span><b>הבודק מתאר</b>, בקול או בכתב.
+        <ul>
+          <li><b>60 השניות האחרונות</b> על המסך והשגיאות נשמרות אוטומטית</li>
+          <li><b>הקלטת שחזור</b> של הצעדים, עד&nbsp;3&nbsp;דקות, לבחירה</li>
+        </ul></span></li>
       <li><span><b>סוכן מנהל שיחת המשך</b> עם הבודק כשחסר פרט.</span></li>
       <li><span><b>כרטיס מוכן לתיקון</b> נפתח, עם כל מה שהמפתח צריך.</span></li>
     </ol>

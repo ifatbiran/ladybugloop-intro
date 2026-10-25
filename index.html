@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LadyBugLoop · יפעת בירן</title>
-<meta name="description" content="LadyBugLoop — Speak the bug. Get the issue. מדווחים על באג בקול או בכתב, ומקבלים כרטיס באג מלא. יפעת בירן, מייסדת.">
+<meta name="description" content="LadyBugLoop: Speak the bug. Get the issue. מדווחים על באג בקול או בכתב, ומקבלים כרטיס באג מלא. יפעת בירן, מייסדת.">
 <meta property="og:title" content="LadyBugLoop · יפעת בירן">
-<meta property="og:description" content="Speak the bug. Get the issue. מהרגע שבאג נראה במסך ועד כרטיס באג מלא — בלי שאף אחד כותב כרטיס.">
+<meta property="og:description" content="Speak the bug. Get the issue. מהרגע שבאג נראה במסך ועד כרטיס באג מלא, בלי שאף אחד כותב כרטיס.">
 <meta property="og:image" content="poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,6 +113,9 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
 .prod .simple{font-family:Rubik,sans-serif;font-weight:700;font-size:18px;line-height:1.35}
 .prod .tech{font-size:17px;color:var(--plum-2);border-top:1px dashed var(--line);padding-top:10px}
 .prod .tech b{color:var(--plum)}
+.prod ul.tech{list-style:none;display:grid;gap:7px;padding-inline-start:0}
+.prod ul.tech li{position:relative;padding-inline-start:18px;line-height:1.4}
+.prod ul.tech li:before{content:"";position:absolute;inset-inline-start:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--magenta)}
 .prod.main{outline:3px solid #ff9ccb;outline-offset:-3px}
 
 /* status */
@@ -232,12 +235,19 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
 </header>
 
 <h2 class="rv" style="animation-delay:.32s"><span class="n">01</span>שלושת המוצרים</h2>
-<p class="sub rv" style="animation-delay:.34s">אני בונה שלושה מוצרים לצוותי פיתוח תוכנה, שכל אחד מהם נשען על הקודם. המוצר שאני מציגה כאן, ומחפשת לו צוותים לפיילוט, הוא <span class="en" style="font-weight:700">LadyBugLoop</span>.</p>
+<p class="sub rv" style="animation-delay:.34s">שלושה מוצרים לצוותי פיתוח תוכנה, וכל אחד נשען על הקודם. המוצר שאני מציגה ומחפשת לו צוותי פיילוט: <span class="en" style="font-weight:700">LadyBugLoop</span>.</p>
 <section class="prods">
   <article class="prod main rv" style="animation-delay:.36s">
     <div class="top"><span class="name en">Lady<span class="bug">Bug</span>Loop</span><span class="tag-chip">המוצר שאני מציגה</span></div>
     <p class="simple">כלי לדיווח על באגים.</p>
-    <p class="tech">כפתור קטן בתוך האתר או האפליקציה. מי שנתקל בתקלה לוחץ ומספר מה קרה, בקול או בכתב. הכלי פותח כרטיס באג מלא ב־<span class="en" style="font-weight:700">GitHub</span> או ב־<span class="en" style="font-weight:700">Jira</span>, עם הקלטת מסך אוטומטית של כ־60 השניות האחרונות, שגיאות ותמלול. הבודק יכול להוסיף גם הקלטת שחזור משלו, עד 3 דקות. אפשר להוסיף, כתוספת אופציונלית בתשלום, ניסיון תיקון אחד (<span class="en" style="font-weight:700">PR</span> אחד).</p>
+    <ul class="tech">
+      <li><b>כפתור</b> קטן בתוך האתר או האפליקציה</li>
+      <li>מי שנתקל בתקלה <b>לוחץ ומתאר</b> את הבאג, בקול או בכתב</li>
+      <li>נפתח <b>כרטיס באג</b> מלא ב־<span class="en" style="font-weight:700">GitHub</span> או ב־<span class="en" style="font-weight:700">Jira</span></li>
+      <li><b>הקלטת מסך</b> אוטומטית של 60 השניות האחרונות, שגיאות ותמלול</li>
+      <li>לבחירת הבודק: <b>הקלטת שחזור</b> של הצעדים, עד&nbsp;3&nbsp;דקות</li>
+      <li>כתוספת אופציונלית בתשלום: <b>ניסיון תיקון אחד</b> (<span class="en" style="font-weight:700">PR</span> אחד)</li>
+    </ul>
   </article>
   <article class="prod rv" style="animation-delay:.4s">
     <div class="top"><span class="name en">bugloop.studio</span><span class="tag-chip">השלב הבא</span></div>
@@ -252,7 +262,7 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
 </section>
 
 <section class="promise rv" style="animation-delay:.45s;margin-top:18px">
-  <p>מהרגע שבאג נראה במסך <b>ועד כרטיס באג מלא</b> —<br>בלי שאף אחד כותב כרטיס.</p>
+  <p>מהרגע שבאג נראה במסך <b>ועד כרטיס באג מלא</b>,<br>בלי שאף אחד כותב כרטיס.</p>
   <small>הבודק מתאר, בקול או בכתב, והכרטיס נכתב לבד. את התיקון מבצעים סוכני <span class="en" style="font-weight:600">AI</span> ב־<span class="en" style="font-weight:600">bugloop.studio</span>, והמפתח מאשר.</small>
 </section>
 
@@ -260,20 +270,22 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
 <section class="ps">
   <div class="pcol pain rv" style="animation-delay:.5s">
     <h3>הבעיה</h3>
-    <p class="lead">בכל חברת תוכנה, תקלה שנמצאת בבדיקות או אצל לקוח צריכה להפוך ל<b>כרטיס באג</b>: מסמך שהמפתח עובד ממנו. כרטיס טוב כולל מה עשו, מה היה צפוי, מה קרה בפועל, באיזה מכשיר ודפדפן, ואת השגיאות שנרשמו ברקע.</p>
+    <p class="lead">תקלה שנמצאת בבדיקות או אצל לקוח הופכת ל<b>כרטיס באג</b>: מסמך שהמפתח עובד ממנו.</p>
     <ul>
-      <li><b>כתיבת כרטיס כזה לוקחת זמן</b>, ולכן רוב הכרטיסים יוצאים חלקיים: "זה לא עובד", בלי צעדים ובלי פרטים.</li>
-      <li><b>המפתח לא מצליח לשחזר את התקלה</b>, וחוזר לבודק עם שאלות. בינתיים שניהם עברו למשימה אחרת.</li>
-      <li><b>מי שאינו בודק מקצועי</b> (מנהל מוצר, איש מכירות, לקוח) כמעט לא מסוגל לכתוב כרטיס שמפתח יכול לעבוד ממנו.</li>
-      <li><b>התוצאה:</b> תקלה שהתיקון שלה קצר נשארת פתוחה ימים, והגרסה מתעכבת.</li>
+      <li><b>כרטיס טוב כולל:</b> צעדים, תוצאה צפויה ובפועל, מכשיר, דפדפן ושגיאות.</li>
+      <li><b>כתיבת כרטיס לוקחת זמן</b>, ולכן רוב הכרטיסים חלקיים: "זה לא עובד", ללא צעדים.</li>
+      <li><b>המפתח לא מצליח לשחזר</b> את התקלה, וחוזר לבודק עם שאלות.</li>
+      <li><b>מי שאינו בודק מקצועי</b> כמעט לא מסוגל לכתוב כרטיס מועיל.</li>
+      <li><b>התוצאה:</b> תיקון קצר נשאר פתוח ימים, והגרסה מתעכבת.</li>
     </ul>
   </div>
   <div class="pcol gain rv" style="animation-delay:.54s">
     <h3>מה <span class="en" style="font-weight:800">LadyBugLoop</span> חוסך</h3>
     <ul>
-      <li><b>זמן כתיבה:</b> לחיצה ומשפט, בקול או בכתב, במקום טופס וצילומי מסך. הכלי כותב את הכרטיס.</li>
-      <li><b>זמן שחזור:</b> הקלטת 60 השניות האחרונות, השגיאות ופרטי המכשיר כבר בתוך הכרטיס, ואפשר להוסיף הקלטת שחזור של הבודק. המפתח רואה מה קרה.</li>
-      <li><b>הלוך־חזור:</b> כשחסר פרט, ה־<span class="en" style="font-weight:700">AI</span> מנהל עם המדווח שיחת המשך, מיד כשהתקלה עוד מול העיניים שלו. מספר הסבבים נקבע לכל פרויקט.</li>
+      <li><b>זמן כתיבה:</b> לחיצה ומשפט, בקול או בכתב. הכלי כותב את הכרטיס.</li>
+      <li><b>זמן שחזור:</b> 60 השניות האחרונות, השגיאות ופרטי המכשיר נקלטים אוטומטית.</li>
+      <li><b>הקלטת שחזור:</b> הבודק מקליט את הצעדים, עד&nbsp;3&nbsp;דקות.</li>
+      <li><b>הלוך־חזור:</b> כשחסר פרט, ה־<span class="en" style="font-weight:700">AI</span> מנהל עם המדווח שיחת המשך מיד. מספר הסבבים נקבע לכל פרויקט.</li>
       <li><b>כל אחד יכול לדווח:</b> גם מי שאינו בודק מקצועי מוסר כרטיס ברמה של בודק.</li>
       <li><b>עלות:</b> התשלום לפי פרויקט, לא לפי מדווח.</li>
     </ul>
@@ -286,7 +298,7 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
     <source src="film.mp4" type="video/mp4">
   </video>
   <div class="film-cap">
-    <span><span class="en" style="font-weight:700">LadyBugLoop</span> — מדברים את הבאג, מקבלים כרטיס</span>
+    <span><span class="en" style="font-weight:700">LadyBugLoop</span>: מדברים את הבאג, מקבלים כרטיס</span>
     <a href="film.mp4" target="_blank" rel="noopener">פתיחת הסרט במסך מלא</a>
   </div>
 </section>
@@ -295,7 +307,7 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
 <section class="flow rv" style="animation-delay:.68s" aria-label="תרשים הזרימה">
   <div class="studio-tag">
     <span class="pill studio"><span class="en">bugloop.studio</span> · הלולאה המלאה</span>
-    <span style="font-size:16px;color:var(--muted)">מבודק — חזרה לאותו בודק</span>
+    <span style="font-size:16px;color:var(--muted)">מבודק וחזרה לאותו בודק</span>
   </div>
   <div class="steps">
     <div class="band lbl">
@@ -304,8 +316,8 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
         <span class="en">LadyBugLoop</span>
       </div>
       <div class="row">
-        <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-mic"/></svg></div><div><b>הבודק לוחץ ומתאר</b><span>"לחצתי פה וזה נתקע"</span></div></div>
-        <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-rec"/></svg></div><div><b>הכול נאסף לבד</b><span>הקלטת 60 שניות אחרונות, שגיאות, רשת, תמלול</span></div></div>
+        <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-mic"/></svg></div><div><b>הבודק לוחץ ומתאר</b><span>או מקליט שחזור, עד&nbsp;3&nbsp;דקות</span></div></div>
+        <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-rec"/></svg></div><div><b>נקלט אוטומטית</b><span>60 שניות אחרונות, שגיאות, רשת, תמלול</span></div></div>
         <div class="st"><div class="ic"><svg aria-hidden="true"><use href="#i-card"/></svg></div><div><b>כרטיס באג מלא</b><span>צעדים לשחזור, צפוי מול בפועל</span></div></div>
       </div>
     </div>
@@ -324,24 +336,28 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
 <section class="ask rv" style="animation-delay:1.05s">
   <h3>מה אני מחפשת</h3>
   <ul>
-    <li>צוותי פיתוח ובדיקות ראשונים לפיילוט</li>
-    <li>ייעוץ באסטרטגיית כניסה לשוק, <span class="en nw" style="font-weight:700">Go-To-Market</span>: איזה ערוץ להפעיל ראשון, מכירה ישירה לחברות, שיווק דיגיטלי ממומן או שותפויות הפצה</li>
-    <li>שיחה של חצי שעה, עם הדגמה חיה של באג שהופך לתיקון</li>
+    <li><b>צוותי פיתוח ובדיקות</b> ראשונים לפיילוט</li>
+    <li><b>ייעוץ בכניסה לשוק</b> (<span class="en nw" style="font-weight:700">Go-To-Market</span>): איזה ערוץ להפעיל ראשון</li>
+    <li><b>ערוצים לבחינה:</b> מכירה ישירה, שיווק ממומן, שותפויות הפצה</li>
+    <li><b>שיחה של חצי שעה</b>, עם הדגמה חיה של באג שהופך לתיקון</li>
   </ul>
 </section>
 
 <h2 class="rv" style="animation-delay:1.08s"><span class="n">05</span>עליי</h2>
 <section class="me rv" style="animation-delay:1.1s">
-  <p class="me-lead">יזמת טכנולוגית ומנהלת תוכניות בכירה: 26 שנים בתעשיית התוכנה, מעל 10 שנים בהובלת צוותי <span class="en" style="font-weight:800">QA</span>, ו־6 שנים בניהול תוכניות בכיר מקצה לקצה.</p>
+  <p class="me-lead">יזמת טכנולוגית ומנהלת תוכניות בכירה.</p>
   <div class="stats me-stats">
     <div class="stat"><div class="big">26+</div><div class="lab">שנים בתעשיית התוכנה</div></div>
     <div class="stat"><div class="big">5</div><div class="lab">מוצרים בפיתוח עם סוכני <span class="en" style="font-weight:700">AI</span></div></div>
     <div class="stat"><div class="big en" style="font-size:26px;line-height:1.15">B.Sc<br>MBA</div><div class="lab">מדעי המחשב ומתמטיקה, מערכות מידע</div></div>
   </div>
   <ul>
-    <li><span class="d">●</span><span><b>הובלתי קבוצות <span class="en" style="font-weight:700">QA</span> ובדיקות אבטחה</b>, ותוכניות פיתוח חוצות צוותים כמנהלת תוכניות בכירה וכ־<span class="en" style="font-weight:700">PMO</span>, בחברות טכנולוגיה וסייבר בינלאומיות.</span></li>
-    <li><span class="d">●</span><span><b>כמנהלת תוכניות ליוויתי וניהלתי את כל מחזור חיי הפיתוח של המוצר, וראיתי בדיוק איפה הדברים נופלים.</b> <span class="en" style="font-weight:700">LadyBugLoop</span> נולד מהפער הזה.</span></li>
-    <li><span class="d">●</span><span><b>מובילה פיתוח של 5 מוצרים מקצה לקצה עם סוכני <span class="en" style="font-weight:700">AI</span>:</b> רעיון, חוויית משתמש, אפיון ובדיקות. אני משתמשת בהם כל יום.</span></li>
+    <li><span class="d">●</span><span><b>26 שנים בתעשיית התוכנה:</b> מעל 10 בהובלת צוותי <span class="en" style="font-weight:700">QA</span>, ו־6 בניהול תוכניות בכיר.</span></li>
+    <li><span class="d">●</span><span><b>הובלתי <span class="en" style="font-weight:700">QA</span> ובדיקות אבטחה</b>, ותוכניות חוצות צוותים כ־<span class="en" style="font-weight:700">PMO</span>, בחברות טכנולוגיה וסייבר בינלאומיות.</span></li>
+    <li><span class="d">●</span><span><b>ראיתי איפה הדברים נופלים</b>, כמנהלת תוכניות לאורך כל מחזור חיי הפיתוח.</span></li>
+    <li><span class="d">●</span><span><span class="en" style="font-weight:700">LadyBugLoop</span> <b>נולד מהפער הזה</b>.</span></li>
+    <li><span class="d">●</span><span><b>5 מוצרים בפיתוח</b> מקצה לקצה עם סוכני <span class="en" style="font-weight:700">AI</span>: רעיון, חוויית משתמש, אפיון ובדיקות.</span></li>
+    <li><span class="d">●</span><span><b>שימוש יומי</b> בסוכנים האלה, על המוצרים שלי.</span></li>
   </ul>
 </section>
 
