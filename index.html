@@ -113,6 +113,9 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
 .prod .simple{font-family:Rubik,sans-serif;font-weight:700;font-size:18px;line-height:1.35}
 .prod .tech{font-size:17px;color:var(--plum-2);border-top:1px dashed var(--line);padding-top:10px}
 .prod .tech b{color:var(--plum)}
+.prod ul.tech{list-style:none;display:grid;gap:7px;padding-inline-start:0}
+.prod ul.tech li{position:relative;padding-inline-start:18px;line-height:1.4}
+.prod ul.tech li:before{content:"";position:absolute;inset-inline-start:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--magenta)}
 .prod.main{outline:3px solid #ff9ccb;outline-offset:-3px}
 
 /* status */
@@ -232,12 +235,18 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
 </header>
 
 <h2 class="rv" style="animation-delay:.32s"><span class="n">01</span>שלושת המוצרים</h2>
-<p class="sub rv" style="animation-delay:.34s">אני בונה שלושה מוצרים לצוותי פיתוח תוכנה, שכל אחד מהם נשען על הקודם. המוצר שאני מציגה כאן, ומחפשת לו צוותים לפיילוט, הוא <span class="en" style="font-weight:700">LadyBugLoop</span>.</p>
+<p class="sub rv" style="animation-delay:.34s">שלושה מוצרים לצוותי פיתוח תוכנה, וכל אחד נשען על הקודם. המוצר שאני מציגה ומחפשת לו צוותי פיילוט: <span class="en" style="font-weight:700">LadyBugLoop</span>.</p>
 <section class="prods">
   <article class="prod main rv" style="animation-delay:.36s">
     <div class="top"><span class="name en">Lady<span class="bug">Bug</span>Loop</span><span class="tag-chip">המוצר שאני מציגה</span></div>
     <p class="simple">כלי לדיווח על באגים.</p>
-    <p class="tech">כפתור קטן בתוך האתר או האפליקציה. מי שנתקל בתקלה לוחץ ומתאר את הבאג, בקול או בכתב. הכלי פותח כרטיס באג מלא ב־<span class="en" style="font-weight:700">GitHub</span> או ב־<span class="en" style="font-weight:700">Jira</span>, עם הקלטת מסך אוטומטית של הדקה האחרונה, שגיאות ותמלול. הבודק יכול להוסיף גם הקלטת שחזור של הצעדים, עד&nbsp;3&nbsp;דקות.</p>
+    <ul class="tech">
+      <li><b>כפתור</b> קטן בתוך האתר או האפליקציה</li>
+      <li>מי שנתקל בתקלה <b>לוחץ ומתאר</b> את הבאג, בקול או בכתב</li>
+      <li>נפתח <b>כרטיס באג</b> מלא ב־<span class="en" style="font-weight:700">GitHub</span> או ב־<span class="en" style="font-weight:700">Jira</span></li>
+      <li><b>הקלטת מסך</b> אוטומטית של הדקה האחרונה, שגיאות ותמלול</li>
+      <li>לבחירת הבודק: <b>הקלטת שחזור</b> של הצעדים, עד&nbsp;3&nbsp;דקות</li>
+    </ul>
   </article>
   <article class="prod rv" style="animation-delay:.4s">
     <div class="top"><span class="name en">bugloop.studio</span><span class="tag-chip">השלב הבא</span></div>
@@ -260,20 +269,22 @@ h2 .n{font-family:Montserrat,sans-serif;font-size:16px;font-weight:800;backgroun
 <section class="ps">
   <div class="pcol pain rv" style="animation-delay:.5s">
     <h3>הבעיה</h3>
-    <p class="lead">בכל חברת תוכנה, תקלה שנמצאת בבדיקות או אצל לקוח צריכה להפוך ל<b>כרטיס באג</b>: מסמך שהמפתח עובד ממנו. כרטיס טוב כולל את הצעדים, התוצאה הצפויה והתוצאה בפועל, את המכשיר והדפדפן, ואת השגיאות שנרשמו ברקע.</p>
+    <p class="lead">תקלה שנמצאת בבדיקות או אצל לקוח הופכת ל<b>כרטיס באג</b>: מסמך שהמפתח עובד ממנו.</p>
     <ul>
-      <li><b>כתיבת כרטיס כזה לוקחת זמן</b>, ולכן רוב הכרטיסים יוצאים חלקיים: "זה לא עובד", בלי צעדים ובלי פרטים.</li>
-      <li><b>המפתח לא מצליח לשחזר את התקלה</b>, וחוזר לבודק עם שאלות. בינתיים שניהם עברו למשימה אחרת.</li>
-      <li><b>מי שאינו בודק מקצועי</b> (מנהל מוצר, איש מכירות, לקוח) כמעט לא מסוגל לכתוב כרטיס שמפתח יכול לעבוד ממנו.</li>
-      <li><b>התוצאה:</b> תקלה שהתיקון שלה קצר נשארת פתוחה ימים, והגרסה מתעכבת.</li>
+      <li><b>כרטיס טוב כולל:</b> צעדים, תוצאה צפויה ובפועל, מכשיר, דפדפן ושגיאות.</li>
+      <li><b>כתיבת כרטיס לוקחת זמן</b>, ולכן רוב הכרטיסים חלקיים: "זה לא עובד", ללא צעדים.</li>
+      <li><b>המפתח לא מצליח לשחזר</b> את התקלה, וחוזר לבודק עם שאלות.</li>
+      <li><b>מי שאינו בודק מקצועי</b> כמעט לא מסוגל לכתוב כרטיס מועיל.</li>
+      <li><b>התוצאה:</b> תיקון קצר נשאר פתוח ימים, והגרסה מתעכבת.</li>
     </ul>
   </div>
   <div class="pcol gain rv" style="animation-delay:.54s">
     <h3>מה <span class="en" style="font-weight:800">LadyBugLoop</span> חוסך</h3>
     <ul>
-      <li><b>זמן כתיבה:</b> לחיצה ומשפט, בקול או בכתב, במקום טופס וצילומי מסך. הכלי כותב את הכרטיס.</li>
-      <li><b>זמן שחזור:</b> הדקה האחרונה על המסך, השגיאות ופרטי המכשיר נקלטים אוטומטית, והבודק יכול להקליט גם שחזור של הצעדים, עד&nbsp;3&nbsp;דקות. הכול כבר בתוך הכרטיס.</li>
-      <li><b>הלוך־חזור:</b> כשחסר פרט, ה־<span class="en" style="font-weight:700">AI</span> שואל את המדווח שאלת המשך מיד, כשהתקלה עוד מול העיניים שלו.</li>
+      <li><b>זמן כתיבה:</b> לחיצה ומשפט, בקול או בכתב. הכלי כותב את הכרטיס.</li>
+      <li><b>זמן שחזור:</b> הדקה האחרונה, השגיאות ופרטי המכשיר נקלטים אוטומטית.</li>
+      <li><b>הקלטת שחזור:</b> הבודק מקליט את הצעדים, עד&nbsp;3&nbsp;דקות.</li>
+      <li><b>הלוך־חזור:</b> כשחסר פרט, ה־<span class="en" style="font-weight:700">AI</span> שואל שאלת המשך מיד.</li>
       <li><b>כל אחד יכול לדווח:</b> גם מי שאינו בודק מקצועי מוסר כרטיס ברמה של בודק.</li>
       <li><b>עלות:</b> התשלום לפי פרויקט, לא לפי מדווח.</li>
     </ul>
